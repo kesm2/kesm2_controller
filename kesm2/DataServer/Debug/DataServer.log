@@ -1,0 +1,52 @@
+﻿Build started 2/24/2016 3:38:14 PM.
+     1>Project "C:\Users\Jaewook\Documents\kesm2\DataServer\DataServer.vcxproj" on node 2 (rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "Debug\DataServer.lastbuildstate".
+       InitializeBuildStatus:
+         Creating "Debug\DataServer.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _VC80_UPGRADE=0x0710 /D _MBCS /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Debug\DataServer.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _VC80_UPGRADE=0x0710 /D _MBCS /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\DataServer.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt DataServer.cpp DataServerDlg.cpp ..\SocketLib\ServerSocket.cpp ..\SocketLib\SocketJr.cpp
+         SocketJr.cpp
+         ServerSocket.cpp
+         DataServerDlg.cpp
+     1>c:\users\jaewook\documents\kesm2\dataserver\dataserverdlg.cpp(254): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(234) : see declaration of 'fopen'
+     1>c:\users\jaewook\documents\kesm2\dataserver\dataserverdlg.cpp(264): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(234) : see declaration of 'fopen'
+         DataServer.cpp
+         Generating Code...
+       ResourceCompile:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D _DEBUG /D _VC80_UPGRADE=0x0710 /D _AFXDLL /l"0x0409" /IDebug\ /nologo /fo"Debug\DataServer.res" DataServer.rc 
+       ManifestResourceCompile:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\DataServer.exe.embed.manifest.res" Debug\DataServer_manifest.rc 
+       Link:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Debug\DataServer.exe" /INCREMENTAL /NOLOGO /MANIFEST /ManifestFile:"Debug\DataServer.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Jaewook\Documents\kesm2\DataServer\Debug\DataServer.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"Debug\DataServer.lib" /MACHINE:X86 Debug\DataServer.res
+         Debug\DataServer.exe.embed.manifest.res
+         Debug\DataServer.obj
+         Debug\DataServerDlg.obj
+         Debug\ServerSocket.obj
+         Debug\SocketJr.obj
+         Debug\stdafx.obj
+       Manifest:
+         Deleting file "Debug\DataServer.exe.embed.manifest".
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\DataServer.exe.embed.manifest" /manifest Debug\DataServer.exe.intermediate.manifest "C:\Program Files\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\DataServer.exe.embed.manifest.res" Debug\DataServer_manifest.rc 
+       LinkEmbedManifest:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Debug\DataServer.exe" /INCREMENTAL /NOLOGO /MANIFEST /ManifestFile:"Debug\DataServer.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Jaewook\Documents\kesm2\DataServer\Debug\DataServer.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"Debug\DataServer.lib" /MACHINE:X86 Debug\DataServer.res
+         Debug\DataServer.exe.embed.manifest.res
+         Debug\DataServer.obj
+         Debug\DataServerDlg.obj
+         Debug\ServerSocket.obj
+         Debug\SocketJr.obj
+         Debug\stdafx.obj
+         DataServer.vcxproj -> C:\Users\Jaewook\Documents\kesm2\DataServer\Debug\DataServer.exe
+       FinalizeBuildStatus:
+         Deleting file "Debug\DataServer.unsuccessfulbuild".
+         Touching "Debug\DataServer.lastbuildstate".
+     1>Done Building Project "C:\Users\Jaewook\Documents\kesm2\DataServer\DataServer.vcxproj" (rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:09.69

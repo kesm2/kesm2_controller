@@ -1,0 +1,924 @@
+
+
+
+                                        - 1 -
+
+
+
+    RELEASE NOTES: XCLIB  - Version 2.2
+
+      1.  This release adds support for Windows XP.  (03-Dec-2001).
+
+      2.  Added Feature:  Function  pxd_SV2112_setExposureAndGain  allows  setting
+          the  current  exposure  and gain for the SILICON VIDEO(R) 2112 and 2112C
+          cameras.  Function pxd_SV2112_setResolutionAndTiming allows setting  the
+          current  decimation,  AOI, scan direction, and pixel clock frequency for
+          the   SILICON   VIDEO(R)   2112   and    2112C    cameras.     Functions
+          pxd_SV2112_getExposure,   pxd_SV2112_getGain,  pxd_SV2112_getDecimation,
+          pxd_SV2112_getAoiTop,  pxd_SV2112_getAoiLeft,  pxd_SV2112_getPixelClock,
+          and  pxd_SV2112_getScanDirection  allow  obtaining the eponymous setting
+          for the SILICON VIDEO(R) 2112 and 2112C cameras.  (03-Dec-2001).
+
+      3.  Added Feature:  A SILICON VIDEO(R) 2112 and 2112C specific example  pro-
+          gram,  XCLIBEXC.CPP,  demonstrates  capture,  display, adjustment of the
+          camera's settings.  (03-Dec-2001).
+
+      4.  Fixed Feature:  The new ::goingBufStatus service may cause system termi-
+          nation  when  used  with  multiple  boards, and when used on any but the
+          first board.  (13-Dec-2001).
+
+      5.  Added Feature:  For SILICON IMAGING  3170  cameras,  video  setup  files
+          saved by XCAP now contain the necessary serial commands to (re)configure
+          the camera.  Upon open, XCLIB now reconfigures  the  camera  with  these
+          serial commands.  (18-Jan-2002).
+
+      6.  Added       Feature:        New       functions        pxd_getGPTrigger,
+          pxd_eventGPTriggerCreate,  and pxd_eventGPTriggerClose provide SCF level
+          access to the software detectable trigger provided on PIXCI(R)  D,  D24,
+          D32,  D2X,  and  D3X  image  boards.   Note that these functions are not
+          needed when using a camera which itself is  in  trigger  mode.   Rather,
+          they  can  be  used  to detect a trigger with cameras in continuous mode
+          where the PIXCI(R) trigger input has  no  direct  effect  on  camera  or
+          PIXCI(R) imaging board.  (01-Feb-2002).
+
+      7.  Fixed Feature:  The pxd_defineImage3 with some combinations  of  imaging
+          boards and cameras would produce a program fault.  (08-Feb-2002).
+
+      8.  Fixed Feature:  On PIXCI(R) and cameras  which  produce  more  than  one
+          pixel  per  clock,  the `vidres.x.vidoffset' was interpreted in units of
+          pixel clocks, instead of pixels.  (13-Feb-2002).
+
+      9.  Fixed Feature:  The PIXCI(R) Windows VXD and SYS files,  the  XCLIB  DLL
+          files,  and  the  PXIPL  DLL files did not have correct, or did not have
+          any, version information shown with the files' properties (such  as  via
+          the Windows Explorer).  (20-Feb-2002).
+
+     10.  Fixed/Added Feature:  The pxd_getFieldCount function  mentioned  in  the
+          Conversion  of  Application  Programs from XCOBJ was not documented.  It
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 2 -
+
+
+
+          has been renamed to pxd_videoFieldCount (a function under the  old  name
+          persists  for compatibility) and documented.  The pxd_getFieldsPerFrame,
+          never    mentioned    or    documented,    has    been    renamed     to
+          pxd_videoFieldsPerFrame and documented.  (27-Feb-2002).
+
+     11.  Improved/Fixed Feature:  The maximum number of bits per pixel value com-
+          ponent was limited to 14, and has been changed to 16.  (09-Apr-2002).
+
+     12.  Fixed Feature:  When switching the SV2112 camera from controlled back to
+          continuous  video  mode, the pxd_SV2112_setVideoAndTriggerMode had to be
+          called twice (with the same parameters).  (02-May-2002).
+
+     13.  Improved Feature:  The XCLIBEXC.CPP example program for use with  SV2112
+          and   SV2112C  cameras  now  also  demonstrates  the  implementation  of
+          automatic gain control (AGC).  (05-Jul-2002)
+
+     14.  Fixed  Feature:   Using  Forceful  Memory   allocation   under   Windows
+          NT/2000/XP,  and  selecting  the  wrong boot.ini selection when prompted
+          during Windows' boot, may prevent Windows from starting.  (09-Aug-2002).
+
+     15.  Fixed Feature:  Using multiple PIXCI(R)  D2X,  D3X,  CL1  under  Windows
+          2000/XP,  where the cameras are tightly synchronized may cause the PC to
+          lockup until rebooted or the cameras powered down.  (12-Aug-2002).
+
+     16.  Added Feature:  XCLIB now supports additional features of newer PIXCI(R)
+          D2X,  D3X  imaging  boards for line scan cameras, increasing the maximum
+          number of lines per image from 65535 to 16777216.  (15-Aug-2002).
+
+     17.  Fixed Feature:  When using multiple PIXCI(R)  CL1  imaging  boards  with
+          certain     cameras,     the    pxd_videoFieldCount    pxd_getFieldCount
+          pxd_getGPTrigger functions always returned the status of unit 1, not the
+          selected   unitmap,  and  the  events  created  by  pxd_eventFieldCreate
+          pxd_eventCapturedFieldCreate pxd_eventGPTriggerCreate were signalled  by
+          activity on either unit.  (22-Aug-2002).
+
+     18.  Fixed   Feature:    On   newer   machines   under   Windows   XP,    the
+          pxd_eventFieldCreate                        pxd_eventCapturedFieldCreate
+          pxd_eventGPTriggerCreate may cause system death  (i.e.   `blue-screen').
+          (23-Aug-2002).
+
+     19.  New Feature:  XCLIB and XCLIB-IPL for Windows now includes  static  link
+          libraries,  as  an  alternative to using the dynamic link library (DLL).
+          For OEM application programs that are to  be  redistributed,  using  the
+          static  link libraries minimizes the number of files that must be redis-
+          tributed.  (09-Sep-2002).
+
+     20.  Improved Feature:  The ::setLiveTrigBuf  and  pxd_goLiveTrig  now  allow
+          selecting  rising, falling, or either edge of the general purpose input,
+          when used with PIXCI(R) SV4, SV5, D2X,  D3X,  and  CL1  imaging  boards.
+          Previously, those features always used either edge.  (09-Sep-2002).
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 3 -
+
+
+
+     21.  Improved Feature:  For PIXCI(R) D2X, D3X, or CL1 and line  scan  cameras
+          running  in  `vertical  mastered' mode (i.e. no external VDRIVE signal),
+          XCLIB now allows snapping an image starting at the next  line,  in  con-
+          trast  to  snapping  when  the internal line counters `roll over'.  (25-
+          Sep-2002).
+
+     22.  Fixed Feature:  In the current release of XCLIB, the  `controlled'  mode
+          parameters        of        pxd_SV2112_setVideoAndTriggerMode        and
+          pxd_SV2112_setCtrlExposureAndRate may not work  as  intended.   (04-Oct-
+          2002).
+
+     23.  Added Feature:  A new example, XCLIBEX4.CPP, demonstrates sequence  cap-
+          ture and display with any PIXCI(R) imaging board.  (11-Oct-2002)
+
+     24.  Fixed Feature:  The pxd_readuchar, pxd_writeuchar,  pxd_readushort,  and
+          pxd_writeushort    as    well   as   the   similar   ::imageWriteUShort,
+          ::imageReadUShort,  ::imageWriteUChar,  and  ::imageReadUChar  functions
+          would return 0 and read/write nothing if the specified AOI were invalid,
+          such as larger than the frame buffer.  (15-Oct-2002).
+
+     25.  Fixed Feature:  The ::bufferSaveStream and ::bufferLoadStream  functions
+          may  cause  program  death when the alignsector parameter is non-zero in
+          conjunction with certain combinations of cameras,  imaging  boards,  and
+          operating systems.  (16-Oct-2002).
+
+     26.  Improved Feature:  The pxd_defineImage, pxd_defineImage3, pxd_readuchar,
+          pxd_writeuchar,   pxd_readushort,   and  pxd_writeushort  now  accept  a
+          colorspace of `CbYCrY' to access pixel data in  UYVY  format,  supported
+          only  with   a PIXCI(R) SV2, SV3, SV4, or SV5 which has been set to cap-
+          ture in that format.  (28-Oct-2002).
+
+     27.  New Feature:  A beta version of XCLIB for  the  Linux  2.4.8  kernel  is
+          released.  (01-Nov-2002)
+
+     28.  Modified Feature:  The default frame buffer memory  size  under  Windows
+          NT,  2000, and XP has been increased from 4 Mbyte to 16 Mbyte.  (05-Nov-
+          2002).
+
+     29.  Fixed Feature:  For some combinations of  PIXCI(R)  imaging  boards  and
+          cameras, use of pxd_defineImage3 selecting fewer than all frame buffers,
+          combined with pxio8_binreadseq,  pxio8_binwriteseq,  pxio8_bin1writeseq,
+          and  pxio8_bin1readseq would result saving or loading more frame buffers
+          than specified.  (13-Nov-2002).
+
+     30.  Improved Feature:  Under Windows NT, 2000, or XP the `-WT' driver confi-
+          guration  parameter  now allows selecting a high resolution kernel timer
+          for time stamping events.  (28-Nov-2002)
+
+     31.  Fixed Feature:  On some machines and cameras under Windows 2000 and  XP,
+          the           pxd_eventFieldCreate          pxd_eventCapturedFieldCreate
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 4 -
+
+
+
+          pxd_eventGPTriggerCreate may cause system death.  (16-Dec-2002).
+
+     32.  Added Feature:  The Camera Link serial API has been added to XCLIB, with
+          functions  clSerialInit, clSerialClose, clSerialRead, and clSerialWrite.
+          These allow access to a PIXCI(R) imaging board which was already  opened
+          by XCLIB.  A separate DLL, clSerPIXCI.dll which has only the Camera Link
+          Serial API, and can be distributed w/out XCLIB's licensing restrictions,
+          can  be  used  to  access  the serial port PIXCI(R) imaging boards w/out
+          XCLIB.  (24-Dec-2002)
+
+     33.  Fixed Feature:  When using 3 or more PIXCI(R) imaging  boards  that  are
+          combinations  of  at least 2 different models (such as D vs SV4 vs D2X),
+          certain combinations of selected boards (via -DM) when installed in cer-
+          tain order on the PCI bus may cause errors upon open.  (13-Jan-2003)
+
+     34.  Fixed  Feature:   The  pxd_setExsyncPrin,   pxd_setExsyncPrincMode   and
+          related  functions  were  not  enabled  for use with the PIXCI(R) CL3SD.
+          (31-Jan-2003)
+
+     35.  Fixed Feature:  For the SILICON VIDEO(R) 2112(C) when used in Controlled
+          mode,    the    maximum    frame    rate    allowed    such    as    via
+          pxd_SV2112_setCtrlExposureAndRate has been corrected (increased).   (04-
+          Feb-2003).
+
+     36.  Fixed Feature:  Driver installation under Windows XP has been  improved,
+          eliminating the problem under some PC configurations whereby the initial
+          Plug&Play installation run's `forever', requiring a reboot and a  second
+          installation.  (20-Feb-2003).
+
+     37.  Added     Feature:      Functions      pxd_SV1310_setExposureGainOffset,
+          pxd_SV1310_setResolutionAndTiming  and  other  related functions provide
+          camera specific controls for the SILICON VIDEO(R) 1310  and  1310C  cam-
+          eras.  (28-Feb-2003)
+
+     38.  Improved  Feature:   The  pxd_SV2112  functions,  and   especially   the
+          pxd_SV2112_get  functions, have been improved and are now faster by vir-
+          tue of caching the camera's state rather  than  having  to  re-read  the
+          information from the camera.  (05-Mar-2003).
+
+     39.  Fixed Feature:  When the PIXCI(R) D2X, D3X, or CL1 is  used  in  (video)
+          triggered  mode  combined  with pxd_goLive, the first triggered image is
+          now captured, rather than capture starting  with  the  second  triggered
+          image.  (05-Apr-2003).
+
+     40.  Fixed    Feature:     The    subsample    parameter    to    the     new
+          pxd_SV1310_setResolutionAndTiming function had the horizontal and verti-
+          cal subsampling components exchanged.  Thus subsample=0x0402 would  have
+          implemented  horizontal subsampling by a factor of two and vertical sub-
+          sampling by a factor of four, rather than the documented horizontal sub-
+          sampling  by  a  factor  of four and vertical subsampling by a factor of
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 5 -
+
+
+
+          two.  (11-Apr-2003).
+
+     41.  Improved Feature:  For the SILICON VIDEO(R) 1310 camera, the frame  rate
+          can  now  be  increased by using subsampling and/or using a smaller AOI.
+          Previously, only a smaller AOI would increase the frame rate.   (11-Apr-
+          2003)
+
+     42.  Fixed Feature:  Using a `struct pximage3' with operations that  read  or
+          write  across  image  boundaries with a single read or write, the result
+          may be incorrect.  The only known library function that this affected is
+          pxio8_binreadseq.  (11-Jun-2003)
+
+     43.  Added Feature:  A new example program, xclibex5.cpp, demonstrates use of
+          non  pxd_  functions  to operate two imaging boards at different resolu-
+          tions.  (06-Jun-2003)
+
+     44.  Fixed Feature:  For the PIXCI(R) CL3SD,  under  Windows  2000,  XP,  the
+          improved driver installation file, epixxcw2.inf, set
+
+                   PIXCI= ... -WT -0x20
+
+          to activate high resolution  timestamps.   The  superfluous  `-'  causes
+          software  to believe the board has 4 Gbytes of memory, regardless of the
+          amount of memory actually installed.  (27-Jun-2003).
+
+     45.  Fixed Feature:  The pximage's optional PXUNIT* constants (which describe
+          the  image's  real-world dimensional units) have been corrected; the old
+          values did not fit within the uchar fields provided, namely  widthunits,
+          heightunits, and depthunits.  (13-Jul-2003)
+
+     46.  Added Feature:  The pxd_goSnapPair has been added as an SCF  version  of
+          ::setSnapPairBuf;  both  intended  for  use with cameras that output two
+          images with a single trigger.  (29-Jul-2003)
+
+     47.  Added Feature:  The pxd_goLiveSeqTrig allows initiating  or  terminating
+          sequence capture in response to a general purpose input or trigger, with
+          less latency than possible with previously available  techniques.   (03-
+          Aug-2003)
+
+     48.  Fixed Feature:  For PIXCI(R) D, D24, D32, D2X, and D3X  imaging  boards,
+          the  pxd_goLiveTrig and ::setLiveTrigBuf optional parameters delay60 and
+          delay70 would implement the stated delay plus 1, rather than the  stated
+          delay.   Note  that  these  functions are rarely used with those imaging
+          boards, as they are only used with cameras that don't implement trigger-
+          ing within the camera.  (07-Aug-2003).
+
+     49.  Modified Feature:  Due to lack of apparent  interest,  the  static  link
+          libraries  for  Windows  are no longer distributed with XCLIB and XCLIB-
+          IPL.  (19-Aug-2003).
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 6 -
+
+
+
+     50.  Improved Feature:  XCLIB now performs a power-up initialization for SIL-
+          ICON  VIDEO(R) 2112 and 1310 cameras upon calling pxd_PIXCIopen.  Previ-
+          ously, the cameras were initialized only by PC power-up.  (12-Sep-2003)
+
+     51.  Fixed Feature:  Under Windows NT, 2000,  and  XP,  when  using  multiple
+          instances   of   XCLIB   (via   multiple   calls   to  xclib_open),  the
+          pxd_eventFieldCreate,              pxd_eventFieldClose,              and
+          pxd_eventCapturedFieldCreate   could  not  be  used  in  more  than  one
+          instance.  (13-Sep-2003).
+
+     52.  Added     Feature:      Functions      pxd_SV1281_setExposureGainOffset,
+          pxd_SV1281_setResolutionAndTiming  and  other  related functions provide
+          camera specific controls for the SILICON VIDEO(R) 1281  and  1281C  cam-
+          eras.  (16-Sep-2003).
+
+     53.  Fixed Feature:  On some PC's, the SILICON  VIDEO(R)  1310(C)  would  not
+          initialize  properly  after  power  up,  outputting a grey image, unless
+          either (a) XCAP was run, or (b) The XCLIB  application  was  run  twice.
+          (29-Sep-2003).
+
+     54.  Improved Feature:  The PIXCI(R) SV5A  is  now  supported  distinct  from
+          PIXCI(R)  SV5;  the  default  SV5A  video  setup  is NTSC, not the SV5's
+          NTSC/YC.  (30-Sep-2003).
+
+     55.  Improved Feature:  For all currently supported  Uniq,  Basler,  Hitachi,
+          and  Cohu  CameraLink  cameras  and the Jai CV-M4+CL/CV-M7+CL CameraLink
+          cameras video setup files saved by XCAP now include the serial  commands
+          needed  to  restore  the  camera  to  the operating mode as set in XCAP.
+          XCLIB now loads those serial commands during pxd_PIXCIopen,  eliminating
+          having  to follow the instructions in the Using a Serial (RS-232) Confi-
+          gurable Camera with the PIXCI(R) D, D24, D32, D2X, D3X,  CL1,  or  CL3SD
+          application  note.   The  same  improvement has always been provided for
+          Silicon Imaging and Redlake ES-1020 cameras, but not  explicitly  noted.
+          (27-Oct-2003).
+
+     56.  Improved Feature:  Under Linux, the `Use Polling Rather than  Interrupts
+          (-QU)' option is now available.  (12-Nov-2003).
+
+     57.  Fixed Feature:  Under Linux, closing the library  may  cause  the  wrong
+          (library  internal)  file `handle' to the driver to be closed, adversely
+          affecting any file or device  opened  after  XCLIB.   Under  Linux,  the
+          pxd_loadBmp does not work properly.  (09-Dec-2003).
+
+     58.  Added Feature:  Functions pxd_definePximage and  pxd_definePximage3  and
+          similar  to  the existing pxd_defineImage and pxd_defineImage3, but more
+          convenient in multi-threaded and a few other, rare, applications.   (06-
+          Jan-2004)
+
+     59.  Fixed Feature:  Under Linux, on some motherboards, interrupts, and  thus
+          notification about end-of-capture, may not work properly.  (14-Jan-2004)
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 7 -
+
+
+
+     60.  Added Feature:  A new example program, XCLIBEX6.TXT, illustrates use  of
+          XCLIB with VB.NET.  (16-Jan-2004).
+
+     61.  Added Feature:  New functions pxd_saveRawBuffers and  pxd_loadRawBuffers
+          have  been  added  as an SCF version of ::bufferLoadStream and ::buffer-
+          SaveStream.  (02-Feb-2004)
+
+     62.  Fixed Feature:  When using XCLIBEXC.CPP and a SILICON  VIDEO(R)  1310(C)
+          with  a  video  setup file saved by XCAP which sets a small capture AOI,
+          the captured image is garbled as the camera is  set  to  one  resolution
+          while  the  SILICON  VIDEO(R)  1310(C)  specific  functions  invoked  by
+          XCLIBEXC.CPP set the PIXCI(R) imaging board to a  different  resolution.
+          (The  same  video  setup file works correctly in XCLIBEX2.CPP which does
+          not make use of SILICON VIDEO(R) 1310(C) specific functions).   (31-Mar-
+          2004).
+
+     63.  Improved Feature:  New function pxd_mesgFaultText allows  obtaining  the
+          text   describing   a   fault   from  a  SCF  style  function,  avoiding
+          pxd_mesgFault's implied creation of a message box.  (12-Apr-2004).
+
+     64.  Fixed Feature:  For Camera Link cameras where a previously  saved  video
+          setup file contains serial commands with which to initialize the camera,
+          XCLIB's pxd_PIXCIopen may fail with a `timeout' error.  The  problem  is
+          most  likely to occur under Linux, but might occur under other operating
+          systems.  (30-Apr-2004).
+
+     65.  Improved Feature:  The XCLIB release now includes the full  XCLIB  C/C++
+          Reference Manual in HTML format.  (07-May-2004).
+
+     66.  Fixed Feature:  For rare combinations of frame buffer sizes versus frame
+          buffer  memory allocation parameters, the per-buffer capture information
+          reported    by    pxd_buffersFieldCount,    pxd_buffersSysTicks,     and
+          pxd_buffersGPIn  may  be  destroyed  by capturing into the last, or last
+          few, frame buffers.  (11-May-2004).
+
+     67.  Fixed Feature:  For the SILICON VIDEO(R) 1281 and 1281C cameras, in some
+          combinations of AOI, pixel clock and other parameters, too large a value
+          of exposure is allowed, causing the captured image to be extremely  dark
+          or  extremely  bright.   Also,  under Visual Basic or Delphi a divide by
+          zero error may occur when the camera was not previously used  by  a  `C'
+          application or XCAP.  (27-May-2004).
+
+     68.  Fixed Feature:  For SILICON VIDEO(R) 1281 and 1281C cameras, the maximum
+          exposure  as  a function of other parameters, and some internal `tweaks'
+          governing timing was not consistent with XCAP.  (17-Jun-2004).
+
+     69.  Improved Feature:  For all currently supported  DVC  CameraLink  cameras
+          video  setup  files saved by XCAP now include the serial commands needed
+          to restore the camera to the operating mode as set in XCAP.   See  entry
+          for 27-Oct-2003 for additional information.  (11-Aug-2004).
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 8 -
+
+
+
+     70.  Added Feature:  Supports the SILICON VIDEO(R) 9M001 and 9M001C  cameras,
+          including  utilizing video setup files saved by XCAP to restore the cam-
+          era state.  But does not yet have camera specific API  functions.   (19-
+          Sep-2004).
+
+     71.  Added Feature:  Access to color pixel values  now  supports  CMY  (cyan,
+          magenta, yellow) color space.  (21-Sep-2004).
+
+     72.  Corrected.  Documentation for  pxd_loadBmp  and  pxd_loadTiff  has  been
+          corrected  to  describe the existing 0x100 option to loadmode.  (25-Oct-
+          2004).
+
+     73.  Added      Feature:       Functions      pxd_SV9M001_setExposureAndGain,
+          pxd_SV9M001_setResolutionAndTiming  and  other related functions provide
+          camera specific controls for the SILICON VIDEO(R) 9M001 and 9M001C  cam-
+          eras.  (25-Oct-2004).
+
+     74.  Improved Feature:  XCLIB now  recognizes  and  supports  Windows  Server
+          2003.  (29-Nov-2004)
+
+     75.  Fixed Feature:  For the SILICON VIDEO(R) 1281 and 1281C cameras and when
+          using  a  video  setup file in non-free run mode.  The call to the first
+          pxd_SV1281_*() function may change the video setup.  Previous workaround
+          was to call pxd_videoFormatAsIncluded after the pxd_SV1281_*() function.
+          (09-Dec-2004)
+
+     76.  Fixed Feature:  For SILICON VIDEO(R) and other  cameras  configured  for
+          per-pixel  offset  and  gain  corrections, when a) Using forceful memory
+          allocation, b) Driver configuration parameter -MB non-zero, and c) Frame
+          buffer  mmeory  mapped into application space, the per-pixel corrections
+          may not be applied correctly.  (22-Dec-2004)
+
+     77.  Improved Documentation:  For the pxd_SV2112_, pxd_SV1310_,  pxd_SV1281_,
+          and  pxd_SV9M001_  functions, documentation now notes that pxd_PIXCIopen
+          performs partial, quick initialization of  ;  initialization  for  these
+          camera  functions  is  delayed  until the first such function is called.
+          Time sensitive applications should call any of  these  camera  functions
+          once  before  entering  the application's time critical phase.  (23-Dec-
+          2004)
+
+     78.  Fixed Feature:  Use of clserPIXCI.DLL (the stand-alone Camera Link  API)
+          failed under Windows 95, 98 if the PIXCI(R) was not previously opened by
+          XCLIB or XCAP.  (06-Jan-2005)
+
+     79.  Added      Feature:       Functions      pxd_SV9M001_setExposureAndGain,
+          pxd_SV9M001_setResolutionAndTiming  and  other related functions provide
+          camera specific controls for the SILICON VIDEO(R) 9T001C  camera.   (27-
+          Feb-2005).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 9 -
+
+
+
+     80.  Improved Feature:  The clserPIXCI.DLL (the stand-alone Camera Link  API)
+          has  been  renamed to clserEPX.dll, and is now compliant with the Camera
+          Link V1.1 specification.  (12-May-2005).
+
+     81.  Improved Feature:  The pxd_xclibEscape now returns NULL if  the  library
+          is not open.  (12-May-2005)
+
+     82.  Fixed Feature:  The Linux version of the PIXCI(R) driver  did  not  work
+          with the (very) old PIXCI(R) SV2 and SV3 imaging boards.  (25-Jun-2005)
+
+     83.  Fixed Feature:  In beta releases of XCLIB w. support  for  the  PIXCI(R)
+          CL2, the pxd_serialConfigure would ONLY work with the CL2, not the older
+          CL1, CL3SD, etc.  (27-Jun-2005).
+
+     84.  Improved Feature:  The data rate of the I2C or two wire serial bus  used
+          to  control  SILICON  VIDEO(R) camera heads can now be increased via the
+          `-I2C' Device Configuration Parameters so as to allow faster control  of
+          gain and other camera head features when used with shorter cables.  This
+          feature is particularly useful with 9T001C cameras, whose camera  head's
+          control  involves  more  I2C  or two wire serial bus activity than other
+          SILICON VIDEO(R) camera heads.  (04-Aug-2005).
+
+     85.  Added Feature:  Now supports Linix 2.6.x kernels.  (03-Oct-2005).
+
+     86.  Added Feature:  Supports the SILICON VIDEO(R)  642M  and  642C  cameras,
+          including  utilizing video setup files saved by XCAP to restore the cam-
+          era        state.         Functions        pxd_SV640_setExposureAndGain,
+          pxd_SV640_setResolutionAndTiming  and  other  related  functions provide
+          camera specific controls for the SILICON VIDEO(R) 642M and 642C cameras.
+          (23-Nov-2005).
+
+     87.  Fixed Feature:  The pxd_readuchar  and  pxd_readushort  functions,  when
+          used  to  read  an  AOI  of the image with one function call, under some
+          memory configurations may return incorrect pixel data.  (22-Dec-2005).
+
+     88.  Modified Feature:  The file name  of  32  bit  Linux  drivers  has  been
+          changed from pixcii86.o or pixcii86.ko to pixci_i386.o or pixci_i386.ko.
+          This will avoid confusion with new 64 bit Linux  drivers,  to  be  named
+          pixci_x86_64.ko.   (The  i386  or  x86_64  file name components are con-
+          sistent with `uname -i').  (30-Jan-2006).
+
+     89.  Improved Feature:  XCLIB now supports the PIXCI(R) CL1 Rev. 3.  An older
+          XCLIB  used  with a PIXCI(R) CL1 Rev. 3 is not be able to correctly pro-
+          gram the Camera Link serial baud rate.  (07-Feb-2006)
+
+     90.  Improved Feature:  XCLIB now supports the PIXCI(R) E1, PCI Express imag-
+          ing board.  (20-Feb-2006)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 10 -
+
+
+
+    RELEASE NOTES: XCLIB  - Version 2.1
+
+      1.  This release supports the PIXCI(R) SV2, SV3, SV4, D,  D24,  D32,  and  A
+          models,   in   Watcom+Tenberry   extended   32   bit  DOS,  and  Windows
+          95/98/NT/2000 environments.  Though not documented, the 95/98 driver and
+          library also works in Windows ME.  (28-Aug-2000).
+
+      2.  Added feature:  An additional forceful memory  allocation  method  added
+          for  Windows  ME using the -IA driver configuration parameter in similar
+          manner as for Windows NT.  (01-Sep-2000).
+
+      3.  Fixed feature:  The default format (pixels per  clock)  for  the  Pulnix
+          TMC-9700 is incorrect.  (04-Sep-2000)
+
+      4.  Fixed feature:  Using pxd_getGPOut or its  non-SCF  counterpart  with  a
+          PIXCI(R) D,  D24,  D32,  or A and certain Kodak 10 bit cameras may cause
+          loss of the 2 least significant bits.  (7-Sep-2000).
+
+      5.  Fixed  documentation:   Documentation   for   pxd_renderDirectVideoInit,
+          pxd_renderDirectVideoDone,         pxd_renderDirectVideoLive,        and
+          pxd_renderDirectVideoUnLive  showed  these  functions  as  being   named
+          pxd_DirectVideoInit,   pxd_DirectVideoDone,   pxd_DirectVideoLive,   and
+          pxd_DirectVideoUnLive.  The library  and  .h  files  are  not  affected.
+          (15-Sep-2000).
+
+      6.  Fixed feature:  The default format for the Dalsa CA-D4  was  incorrectly
+          set as if for a line scan camera.  (19-Sep-2000).
+
+      7.  Fixed documentation:  The documentation for pxd_goLiveSeq also  referred
+          to  a  `pxd_goSnapSeq' function; the `pxd_goSnapSeq' was a typographical
+          error and should have been pxd_goLiveSeq.  (28-Sep-2000).
+
+      8.  Added feature:  Support for using interlace cameras with the PIXCI(R) D,
+          D24,  D32  added with support for snap, live, and sequence capture.  The
+          ::setLiveTrigBuf does not yet support interlace modes.  (29-Sep-2000)
+
+      9.  Fixed release:  Versions of XCLIB for Windows NT  w/out  PXIPL  did  not
+          included  the EPIXXCWT.SYS driver and related files.  These files can be
+          obtained from the XCAP release.  (03-Nov-2000)
+
+     10.  Added feature:  XCLIB now supports the PIXCI(R) D2X  series  of  imaging
+          boards.  (06-Nov-2000)
+
+     11.  Fixed documentation:  The documentation for the reserved period  parame-
+          ter of ::setLivePairBuf specified that its value should be 0.  The value
+          should be 1.  (09-Nov-2000).
+
+     12.  Added feature:  The  pxd_defineImage,  pxd_defineImage3,  pxd_readuchar,
+          pxd_readushort,  pxd_writeuchar,  and  pxd_writeushort now accept `GRAY'
+          and `Gray' as a synonyms for `Grey', and now accept `Bayer' for  use  in
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 11 -
+
+
+
+          conjunction  with cameras that actually output raw Bayer pattern values,
+          and where the library would otherwise be responsible for converting  the
+          values to RGB(x) or BGR(x).  (22-Dec-2000).
+
+     13.  Modified feature:  For Bayer output cameras, the `Default' pixel  format
+          is  now  BGR  rather  than  RGB,  for  better  display  performance when
+          `Default' is requested.  (Does not affect code that explicitly requested
+          BGR format).  (01-Jan-2001).
+
+     14.  Fixed feature:  A Driver Configuration  Parameter  of  `-XM'=0  (a  non-
+          default value) did not work properly with multiple boards installed.
+
+             With multiple boards, one of which having a configuration error while
+          others  are  selected  for  actual  use, may result in a spurious `Can't
+          allocate frame buffer memory' error.  (02-Jan-2001).
+
+     15.  Fixed Feature:  The pxd_defineImage3 did  not  accept  a  colorspace  of
+          `Default' (the pxd_defineImage was not affected).  (13-Jan-2001).
+
+     16.  Fixed  Feature:   The  pxd_defineImage  and  pxd_defineImage3  area   of
+          interest  selection  may  or  may not have the correct effect, depending
+          upon the function with which  the  pxd_defineImage  or  pxd_defineImage3
+          result is used (a new bug only in previous release).  (13-Jan-2001).
+
+     17.  Added Feature:  The pxd_defineImage and pxd_defineImage3  now  accept  a
+          colorspace  of  `Display', which provides the most efficient color space
+          for display of the frame  buffer  through  pxio8_GDIDisplay  or  similar
+          functions.  (13-Jan-2001).
+
+     18.  Fixed Feature:  Using forceful memory allocation under Windows NT,  Win-
+          dows  2000,  or  DOS  with  a PIXCI(R) SV4 would result in unpredictable
+          behavior the second time (since  booting)  that  the  board  is  opened.
+          (16-Jan-2001).
+
+     19.  Fixed Feature:  Calling pxd_goLiveSeq or ::setLiveSeqBuf while a  previ-
+          ous  pxd_goLiveSeq or ::setLiveSeqBuf was in operation did not alter the
+          numbuf setting .  (17-Jan-2001)
+
+     20.  Added Feature:  XCLIB now supports the two G.P In and two G.P  Out  bits
+          for the PIXCI(R) D2X series of imaging boards.  (24-Jan-2001).
+
+     21.  Fixed Feature:  For PIXCI(R) SV4 imaging boards in ::setLiveSeqBuf mode,
+          a  ::getLiveStatus  using  PXVIST_RUNNING  always  returned 0.  (31-Jan-
+          2001).
+
+     22.  Added        Feature:         The        pxd_eventFieldCreate        and
+          pxd_eventCapturedFieldCreate allow the application to be signalled via a
+          Windows event at the start of each field, and/or at the end of each cap-
+          tured    field.     Under    Tenberry+DOS,    pxd_eventFieldCreate   and
+          pxd_eventCapturedFieldCreate allow specifying a `callback'  function  to
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 12 -
+
+
+
+          be  invoked  at  the start of each field, and/or at the end of each cap-
+          tured field.  (06-Feb-2001).
+
+     23.  Improved Feature:  A new EPIXXCW2.SYS driver for Windows  2000  provides
+          better   compatibility  with  newer  motherboards.   In  particular,  it
+          resolves a problem with motherboards using early  800  series  chipsets,
+          which  would  not provide interrupts.  The older EPIXXCWT.SYS driver for
+          Windows NT may still be used under Windows 2000 on all  previously  sup-
+          ported motherboards.  (20-Feb-2001).
+
+     24.  Fixed feature:  The default format  for  the  SMD  4M15  was  incorrect.
+          (27-Mar-2001).
+
+     25.  Added Feature:  New function pxd_setExsyncPrincMode,  pxd_getExsyncMode,
+          and  pxd_getPrincMode  allow  setting camera configuration bits, but not
+          suggested for use in favor of loading a new video configuration format.
+
+             New service pxd_videoFormatAsIncluded allows configuring XCLIB as per
+          a  video  configuration  format that has been compiled into the applica-
+          tion, and without re-opening XCLIB.  (01-Apr-2001).
+
+     26.  Fixed Feature:  The ::setLiveTrigBuf used with a  PIXCI(R)  SV4  imaging
+          board did not always set the `gpout60value' or `gpout80value' correctly.
+          (08-May-2001)
+
+     27.  Added Feature:  The ::setLiveTrigBuf is now supported for  the  PIXCI(R)
+          D2X imaging boards.  (09-May-2001).
+
+     28.  Added feature:  XCLIB now supports the PIXCI(R) CL1  series  of  imaging
+          boards  for  Camera  Link  cameras.   New functions pxd_serialConfigure,
+          pxd_serialRead, and pxd_serialWrite support  reading  and  writing  data
+          through the PIXCI(R) CL1.  (15-May-2001).
+
+     29.  Fixed feature:   Under  Windows  NT  and  2000,  the  event  created  by
+          pxd_eventFieldCreate  and pxd_eventCapturedFieldCreate is initially sig-
+          nalled; thus the first WaitForSingleObject would always  return  immedi-
+          ately.    For   PIXCI(R)  D2X  imaging  boards,  the  event  created  by
+          pxd_eventCapturedFieldCreate behaved the same as  an  event  created  by
+          pxd_eventFieldCreate.  (18-May-2001).
+
+     30.  Added Feature:  The XCLIB now supports the PIXCI(R) SV5  imaging  board.
+          (29-May-2001).
+
+     31.  Fixed Feature:  Under Windows 2000, the PIXCI(R) SV5 would appear as two
+          devices, (1) The SV5, and (2) A (18-Jun-2001).
+
+     32.  Added Feature:  The XCLIB now support  opening  multiple,  simultaneous,
+          instances  of  the  library;  allowing  use  of multiple, non-identical,
+          PIXCI(R) imaging boards.  The multiple instances must be opened from the
+          same   process,   with  multi-thread  synchronization  provided  by  the
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 13 -
+
+
+
+          application program.  (01-Jul-2001).
+
+     33.  Fixed Feature:  The new  pxd_serialWrite  did  not  function  correctly.
+          (03-Jul-2001).
+
+     34.  Modified feature:  For PIXCI(R) SV2, SV3, SV4,  and  SV5,  for  PAL  and
+          CCIR,  the default video setup has been changed to avoid capturing black
+          lines at the top of the image.  (06-Jul-2001).
+
+     35.  Fixed Feature:  When using Forceful Memory allocation under  Windows  NT
+          or  2000,  the  frame  buffer  memory  would not be cleared when Windows
+          booted.  Rather, the memory, or  a  portion  of  the  memory,  would  be
+          cleared each time the library/driver was opened.  (18-Jul-2001).
+
+     36.  Fixed Feature:  The ::setLiveTrigBuf did not work with the PIXCI(R) D2X,
+          causing program or PC hang-ups.  (20-Jul-2001).
+
+     37.  Modified  feature:   The  size  of   the   serial   data   buffers   for
+          pxd_serialRead  and pxd_serialWrite have been increased from 32 bytes to
+          1024 bytes.  (28-Jul-2001).
+
+     38.  Fixed Feature:  For PIXCI(R) D, D24, D32, D2X, or CL1, specifying  video
+          resolution  `setmaxdatsamples'  or  `setmaxvidsamples' with insufficient
+          frame buffer memory to  achieve  maximum  resolution  would  (correctly)
+          cause  the  `setmax...samples'  to be overridden and a less than maximum
+          resolution to be used.  However, the X & Y resolution  used,  trading  X
+          resolution for Y resolution, would not be consistent.  (05-Aug-2001).
+
+     39.  Fixed Feature:  Trying to open a imaging board while already in  use  by
+          an  earlier  application  correctly  produced  an error, but incorrectly
+          closed the imaging board and deprived the  earlier  application  of  its
+          use.  (13-Aug-2001).
+
+     40.  Fixed Feature:  Support for opening  multiple,  non-identical,  PIXCI(R)
+          imaging  boards  was  not  fully  included  in Windows NT/2000 versions.
+          (17-Aug-2001).
+
+     41.  Added  Feature:   New  functions  pxd_buffersFieldCount  pxd_buffersGPIn
+          pxd_buffersSysTicks  provide  the  time and value of the general purpose
+          inputs for each captured buffer.  (16-Sep-2001).
+
+     42.  Added Feature:  New function pxd_goLiveTrig allows using  ::setLiveTrig-
+          Buf within the SCF functions.  (25-Sep-2001).
+
+     43.  Fixed Feature:  The ::setLiveTrigBuf did not work with the PIXCI(R) D2X,
+          causing the `wait for g.p. input' to never be satisfied.  (05-Oct-2001).
+
+     44.  Fixed   Feature:    The   colorspace   parameter    of    pxd_readuchar,
+          pxd_writeuchar  and similar functions is documented as allowing a selec-
+          tion of `YCrCb', `YofYCrCb', `RofYCrCb', and `BofYCrCb', but the library
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 14 -
+
+
+
+          instead   required  `YCRCB',  `YofYCRCB',  `RofYCRCB',  and  `BofYCRCB'.
+          Either `YCRCB' or `YCrCb', and their variants, are  now  allowed.   (05-
+          Oct-2001)
+
+     45.  Fixed Feature:  The ::importStateCopy  and  ::exportStateCopy,  and  the
+          third  parameter  of  pxd_PIXCIopen  did  not always work properly under
+          Watcom+Tenberry.  (24-Oct-2001).
+
+     46.  Modified Feature:  A twelfth  parameter,  trackers  has  been  added  to
+          ::setLiveSeqBuf; existing code should simply add a final parameter of 0.
+          (28-Oct-2001).
+
+     47.  Added feature:  XCLIB now supports the PIXCI(R) D3X  series  of  imaging
+          boards.  (Oct-2001)
+
+     48.  Added Feature:  XCLIB now supports the G.P. In and G.P.  Out  bits  that
+          have  been  added  to  newer  released of PIXCI(R) CL1 boards.  (12-Nov-
+          2001).
+
+
+    RELEASE NOTES: XCLIB  - Version 0.0 Beta
+
+      1.  Fixed  Feature.   The  pxd_readuchar,  pxd_writeuchar,   pxd_readushort,
+          pxd_writeushort,  as  well  as their ::imageReadUChar, ::imageWriteUChar
+          ::imageReadUShort, ::imageWriteUShort equivalents do not  work  properly
+          on an image AOI.  (27-Jun-2000).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

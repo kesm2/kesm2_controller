@@ -1,0 +1,365 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Korean resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+#ifdef _WIN32
+LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
+#pragma code_page(949)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\StageController.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\StageController.ico"
+#endif    // Korean resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG  0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About StageController"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "StageController Version 1.0",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2005",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_STAGECONTROLLER_DIALOG DIALOGEX 0, 0, 338, 394
+STYLE DS_SETFONT | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "Session Management",IDC_STATIC,7,7,324,33
+    PUSHBUTTON      "&Create...",IDC_BUTTON_NEW_SESSION,17,17,40,17
+    LTEXT           "Static",IDC_STATIC_SESSION_TITLE,62,22,213,8
+    PUSHBUTTON      "&Open...",IDC_BUTTON_OPEN_SESSION,284,17,40,17
+    GROUPBOX        "Stage Controller System",IDC_STATIC,7,41,324,241
+    PUSHBUTTON      "Stage &Parameters Setting",IDC_BTN_SETTINGS,14,52,310,19
+    GROUPBOX        "",IDC_STATIC,14,75,309,141
+    CONTROL         "Save Images",IDC_CHECK_SAVEIMAGES,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,22,75,57,10
+    PUSHBUTTON      "ImageErrDetection",IDC_BTN_CUT_A_SLICE,21,91,76,30
+    PUSHBUTTON      "Cut One &Plank",IDC_BTN_CUT_A_PLANK,101,91,81,31
+    RTEXT           "Static",IDC_LEFT_SLICES,232,91,83,31,SS_SUNKEN
+    PUSHBUTTON      "Start",IDC_BTN_SS_START_STOP,26,135,70,30
+    PUSHBUTTON      "Pause",IDC_BTN_SS_PAUSE_RESUME,239,135,70,30
+    PUSHBUTTON      "Plank Session",IDC_BTN_PLANK_SESSION,192,233,63,14
+    PUSHBUTTON      "Enable X Y Z",IDC_BTN_ENABLE_STAGE,192,248,63,14
+    PUSHBUTTON      "Disable X Y Z",IDC_BTN_DISABLE_STAGE,192,263,63,14
+    PUSHBUTTON      "STOP!",IDC_BTN_STOP,258,232,63,30
+    PUSHBUTTON      "RESET",IDC_BTN_RESET_STAGE,258,263,63,14
+    PUSHBUTTON      "&Launch Image Capture System",IDC_BTN_LAUNCH_IMAGE_CAPTURE,15,294,308,19
+    LISTBOX         IDC_LST_LOG,11,332,316,50,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    GROUPBOX        "Data Capture System",IDC_STATIC,7,283,324,37
+    GROUPBOX        "Debug Messages",IDC_STATIC,7,320,324,67
+    LTEXT           "X:",IDC_STATIC,16,237,8,8
+    EDITTEXT        IDC_EDIT_YPOS,32,249,52,14,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Y:",IDC_STATIC,16,253,8,8
+    EDITTEXT        IDC_EDIT_ZPOS,32,263,52,14,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Z:",IDC_STATIC,16,267,8,8
+    EDITTEXT        IDC_EDIT_XPOS,32,234,52,14,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Absolute:",IDC_STATIC,33,224,30,8
+    EDITTEXT        IDC_EDIT_XPOS2,88,234,52,14,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_YPOS2,88,249,52,14,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_ZPOS2,88,263,52,14,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Feedback:",IDC_STATIC,88,224,35,8
+    LTEXT           "Left:",IDC_STATIC,232,82,15,8
+    LTEXT           "Current Col:",IDC_STATIC,113,138,38,8
+    EDITTEXT        IDC_EDIT_SS_CUR_COL,155,135,68,14,ES_AUTOHSCROLL | ES_READONLY,WS_EX_RIGHT
+    GROUPBOX        "Stair Step Cutting",IDC_STATIC,19,124,297,87
+    LTEXT           "Current Z:",IDC_STATIC,113,153,32,8
+    EDITTEXT        IDC_EDIT_SS_CUR_Z,155,150,68,14,ES_AUTOHSCROLL | ES_READONLY,WS_EX_RIGHT
+    PUSHBUTTON      "Init",IDC_BTN_SS_INIT,26,175,47,30
+    PUSHBUTTON      "Step by Step",IDC_BTN_SS_STEP_BY_STEP,147,175,61,30
+    PUSHBUTTON      "Go",IDC_BTN_SS_GO,216,175,40,30
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,27,170,277,1
+    PUSHBUTTON      "Reset Start Pos",IDC_BTN_SS_SET_START,80,175,60,30
+    PUSHBUTTON      "Stop",IDC_BTN_SS_STOP,263,175,46,30
+END
+
+IDD_SETTINGS_DIALOG DIALOGEX 290, 0, 271, 234
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Settings"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT_SLICE_WIDTH,84,23,47,12,ES_AUTOHSCROLL,WS_EX_RIGHT
+    EDITTEXT        IDC_EDIT_SLICE_THICKNESS,84,38,47,12,ES_AUTOHSCROLL,WS_EX_RIGHT
+    EDITTEXT        IDC_EDIT_SLICE_LENGTH,84,53,47,12,ES_AUTOHSCROLL,WS_EX_RIGHT
+    COMBOBOX        IDC_COMBO_CUTTING_MODE,177,24,76,61,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT_AVERAGE_SPEED,205,39,47,12,ES_AUTOHSCROLL,WS_EX_RIGHT
+    EDITTEXT        IDC_EDIT_DEVIATION_SPEED,205,53,47,12,ES_AUTOHSCROLL,WS_EX_RIGHT
+    EDITTEXT        IDC_EDIT_WAIT,205,67,47,12,ES_AUTOHSCROLL,WS_EX_RIGHT
+    EDITTEXT        IDC_EDIT_SLICE_PER_PLANK,84,77,47,12,ES_AUTOHSCROLL,WS_EX_RIGHT
+    EDITTEXT        IDC_EDIT_PLANK_DEPTH,84,92,47,12,ES_AUTOHSCROLL,WS_EX_RIGHT
+    EDITTEXT        IDC_EDIT_PLANK_WIDTH,84,107,47,12,ES_AUTOHSCROLL,WS_EX_RIGHT
+    EDITTEXT        IDC_EDIT_LIFT_HEIGHT,206,94,47,12,ES_AUTOHSCROLL,WS_EX_RIGHT
+    EDITTEXT        IDC_EDIT_RETURN_SPEED,206,108,47,12,ES_AUTOHSCROLL,WS_EX_RIGHT
+    CONTROL         "Left",IDC_RADIO_CE_LEFT,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,82,136,29,10
+    CONTROL         "Right",IDC_RADIO_CE_RIGHT,"Button",BS_AUTORADIOBUTTON,116,136,33,10
+    EDITTEXT        IDC_EDIT_SS_BLOCK_WIDTH,84,147,47,12,ES_AUTOHSCROLL,WS_EX_RIGHT
+    EDITTEXT        IDC_EDIT_SS_COLUMN_WIDTH,84,160,47,12,ES_AUTOHSCROLL,WS_EX_RIGHT
+    EDITTEXT        IDC_EDIT_SS_SLICE_THICKNESS,204,147,47,12,ES_AUTOHSCROLL,WS_EX_RIGHT
+    EDITTEXT        IDC_EDIT_SS_PLANK_DEPTH,204,161,47,12,ES_AUTOHSCROLL,WS_EX_RIGHT
+    EDITTEXT        IDC_EDIT_FIRE_STEP,84,191,47,12,ES_AUTOHSCROLL,WS_EX_RIGHT
+    EDITTEXT        IDC_EDIT_FIRE_PULSE_WIDTH,206,191,47,12,ES_AUTOHSCROLL,WS_EX_RIGHT
+    PUSHBUTTON      "&Apply",IDC_BUTTON_APPLY,58,213,50,14
+    DEFPUSHBUTTON   "OK",IDOK,111,213,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,164,213,50,14
+    GROUPBOX        "Cutting Parameters",IDC_STATIC,8,7,256,173
+    LTEXT           "Mode:",IDC_STATIC,148,26,21,8
+    GROUPBOX        "Slice",IDC_STATIC,14,15,122,54
+    LTEXT           "Width:",IDC_STATIC,24,26,22,8
+    LTEXT           "Thickness:",IDC_STATIC,24,40,34,8
+    LTEXT           "Average",IDC_STATIC,148,41,28,8
+    LTEXT           "Deviation:",IDC_STATIC,148,54,34,8
+    LTEXT           "Slice / Plank:",IDC_STATIC,25,80,41,8
+    LTEXT           "Stair Plank Depth:",IDC_STATIC,25,94,58,8
+    LTEXT           "Stair Plank Width:",IDC_STATIC,25,108,58,8
+    GROUPBOX        "Camera Firing Parameters",IDC_STATIC,7,179,257,30
+    LTEXT           "Fire Step:",IDC_STATIC,25,193,32,8
+    LTEXT           "Fire Pulse Width:",IDC_STATIC,149,193,55,8
+    LTEXT           "Length:",IDC_STATIC,24,53,26,8
+    GROUPBOX        "Curring Speed",IDC_STATIC,140,15,118,69
+    GROUPBOX        "Plank",IDC_STATIC,14,68,122,58
+    LTEXT           "Lift Height:",IDC_STATIC,149,97,36,8
+    LTEXT           "Return Speed:",IDC_STATIC,149,110,48,8
+    GROUPBOX        "Stage Movement",IDC_STATIC,140,85,117,42
+    LTEXT           "Wait:",IDC_STATIC,148,69,18,8
+    LTEXT           "Block Width:",IDC_STATIC,26,150,40,8
+    LTEXT           "Column Width:",IDC_STATIC,26,161,48,8
+    GROUPBOX        "Stair Step",IDC_STATIC,14,127,243,49
+    LTEXT           "Slice Thickness:",IDC_STATIC,141,150,50,8
+    LTEXT           "Plank Depth(slice):",IDC_STATIC,141,161,60,8
+    LTEXT           "Cutting Edge:",IDC_STATIC,26,139,45,8
+END
+
+IDD_SESSION_DESC_DIALOG DIALOGEX 0, 0, 262, 138
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Session Description Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT_SESSION_TITLE,7,17,248,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SESSION_DESCRIPTION,7,46,248,66,ES_MULTILINE | ES_AUTOHSCROLL | ES_WANTRETURN
+    DEFPUSHBUTTON   "OK",IDOK,79,117,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,132,117,50,14
+    LTEXT           "Title:",IDC_STATIC,7,8,17,8
+    LTEXT           "Descriptions:",IDC_STATIC,7,37,42,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "FileDescription", "StageController MFC Application"
+            VALUE "FileVersion", "1, 0, 0, 1"
+            VALUE "InternalName", "StageController"
+            VALUE "LegalCopyright", "Copyright (C) 2005"
+            VALUE "OriginalFilename", "StageController.EXE"
+            VALUE "ProductName", "StageController Application"
+            VALUE "ProductVersion", "1, 0, 0, 1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_STAGECONTROLLER_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 331
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 387
+    END
+
+    IDD_SETTINGS_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 264
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 227
+    END
+
+    IDD_SESSION_DESC_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 255
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 131
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BKGRND              BITMAP                  "res\\kesm.bmp"
+IDB_CSLOGO              BITMAP                  "res\\cslogo.bmp"
+IDB_BITMAP1             BITMAP                  "res\\super32.bmp"
+IDB_BITMAP2             BITMAP                  "res\\super16.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_SETTINGS_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO_CUTTING_MODE, 0x403, 7, 0
+0x4152, 0x444e, 0x4d4f, "\000" 
+    IDC_COMBO_CUTTING_MODE, 0x403, 6, 0
+0x4946, 0x4558, 0x0044, 
+    IDC_COMBO_CUTTING_MODE, 0x403, 12, 0
+0x4c41, 0x4554, 0x4e52, 0x5441, 0x4e49, 0x0047, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About StageController..."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\StageController.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

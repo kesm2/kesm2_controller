@@ -1,0 +1,198 @@
+
+
+
+                                        - 1 -
+
+
+
+    DISTRIBUTION KIT:
+
+            Image Processing C/C++ Library for
+                SVOBJ Version 7.5
+                4MOBJ Version 3.5
+                XCOBJ Version 1.5
+            or  XCLIB Version 2.2
+
+    The PXIPL distribution contains one or more of:
+
+     1)                     PXIPL Library:
+        PXIPM7DM.LIB          Microsoft C/C++ V7.0, M model, DOS V3.0+.
+        PXIPM7DL.LIB          Microsoft C/C++ V7.0, L model, DOS V3.0+.
+        PXIPM8DM.LIB          Microsoft C/C++ V8.0, M model, DOS V3.0+, (Visual C).
+        PXIPM8DL.LIB          Microsoft C/C++ V8.0, L model, DOS V3.0+, (Visual C).
+
+        PXIPB4DM.LIB          Borland C/C++ V4.0, M model, for DOS V3.0+.
+        PXIPB4DL.LIB          Borland C/C++ V4.0, L model, for DOS V3.0+.
+        PXIPB5DM.LIB          Borland C/C++ V5.0, M model, for DOS V3.0+.
+        PXIPB5DL.LIB          Borland C/C++ V5.0, L model, for DOS V3.0+.
+
+        PXIPW0DF.LIB          Watcom 32 Bit C/C++ V10.0, F model, Tenberry+DOS.
+        PXIPW1DF.LIB          Watcom 32 Bit C/C++ V11.0, F model, Tenberry+DOS.
+
+        PXSV75W3.DLL          DLL and import library for SVOBJ V7.5,
+        PXSV75W3.LIB          for Windows 3.x (compiler independent).
+
+        PX4M35W3.DLL          DLL and Import library for 4MOBJ V3.5
+        PX4M35W3.LIB          for Windows 3.x (compiler independent).
+
+        PXSV75W5.DLL          DLL and import library for SVOBJ V7.5,
+        PXSV75W5.LIB          for Windows 95 (compiler independent).
+
+        PX4M35W5.DLL          DLL and Import library for 4MOBJ V3.5,
+        PX4M35W5.LIB          for Windows 95 (compiler independent).
+
+        PXXC15W5.DLL          DLL and Import library for XCOBJ V1.5,
+        PXXC15W5.LIB          for Windows 95 (compiler independent).
+
+        PXIPLW95.DLL          DLL and Import library for XCLIB V2.2,
+        PXIPLW95.LIB          for Windows 95/98/ME (compiler independent).
+
+        PX4M35WT.DLL          DLL and Import library for 4MOBJ V3.5,
+        PX4M35WT.LIB          for Windows NT V4.0 (compiler independent).
+
+        PXXC15WT.DLL          DLL and Import library for XCOBJ V1.5,
+        PXXC15WT.LIB          for Windows NT V4.0 (compiler independent).
+
+        PXIPLWNT.DLL          DLL and Import library for XCLIB V2.2,
+        PXIPLWNT.LIB          for Windows NT/2000/XP V4.0 (compiler independent).
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 2 -
+
+
+
+        PXIPM2W5.LIB          Library, static link for XCLIB V2.2,
+                              for Windows 95/98/ME,
+                              Microsoft V12 (Visual Studio V6).
+
+        PXIPM2WT.LIB          Library, static link for XCLIB V2.2,
+                              for Windows NT/2000/XP,
+                              Microsoft V12 (Visual Studio V6).
+
+        pxipli86.a            Library, static link, for Linux,
+                              Intel 80x86, and GNU 'C'.
+
+
+     2) pxipl.h             Master C include file for programs using PXIPL.
+
+        pxi8hist.h          Various C include files for PXIPL.
+        pxi8mmnt.h          Included by inclusion of PXIPL.H.
+        pxi8pcl.h
+        pxi8vitc.h  pximfile.h
+        pximregn.h  pximshap.h
+        pximage.h   pximages.h
+        pxerrno.h   pxextras.h
+
+        pxip8.h             Old name of PXIPL.H, prototypes of obsolete functions.
+
+     3) PXIPC4S1.LIB        PXIPL Native Libraries, for 4MOBJ and COC40,
+        PXIPC4S2.LIB        Texas Instruments TMS320C40 C Compiler.
+        PXIPC4S3.LIB
+        PXIPC4S4.LIB
+
+     4)                     PXIPL Bound Libraries, for 4MOBJ and COC40:
+        PXC4M7DM.LIB          for Microsoft C/C++ V7.0, M Model, DOS 3.0+.
+        PXC4M7DL.LIB          for Microsoft C/C++ V7.0, L Model, DOS 3.0+.
+        PXC4M8DM.LIB          for Microsoft C/C++ V8.0, M Model, DOS 3.0+.
+        PXC4M8DL.LIB          for Microsoft C/C++ V8.0, L Model, DOS 3.0+.
+
+        PXC4B4DM.LIB          for Borland C/C++ V4.0, M Model, DOS 3.0+.
+        PXC4B4DL.LIB          for Borland C/C++ V4.0, L Model, DOS 3.0+.
+        PXC4B5DM.LIB          for Borland C/C++ V4.0, M Model, DOS 3.0+.
+        PXC4B5DL.LIB          for Borland C/C++ V4.0, L Model, DOS 3.0+.
+
+        PXC4W0DF.LIB          for Watcom 32 Bit C/C++ V10.0, Tenberry+DOS.
+        PXC4W1DF.LIB          for Watcom 32 Bit C/C++ V11.0, Tenberry+DOS.
+
+        PXC435W3.DLL          DLL and inport library for Windows 3.x
+        PXC435W3.LIB          (compiler independent).
+
+        PXC435W5.DLL          DLL and inport library for Windows 95
+        PXC435W5.LIB          (compiler independent).
+
+        PXC435WT.DLL          DLL and inport library for Windows NT V4.0
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 3 -
+
+
+
+        PXC435WT.LIB          (compiler independent).
+
+        M4C4PXIP.H          Include file for COC40 bound functions.
+
+     5) *.txt               One or more ASCII text files containing distribution
+                            information, release notes, manual updates, etc.
+
+    A)  Image Processing C/C++ Library Reference Manual.
+
+
+    Items 1 through 5 distributed on diskettes or CD.
+    Item A distributed on paper.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

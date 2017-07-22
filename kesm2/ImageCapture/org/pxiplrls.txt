@@ -1,0 +1,1386 @@
+
+
+
+                                        - 1 -
+
+
+
+    RELEASE NOTES: PXIPL for XCLIB Version 2.2
+
+      1.  Modified Feature:  The the PXIPL DLL files distributed  with  XCLIB  did
+          not  have  correct,  or did not have any, version information shown with
+          the files' properties (such as via the Windows Explorer).  Further,  the
+          PXIPL version specification, being different than the version specifica-
+          tion of the XCLIB with which it works, is  confusing.   Henceforth,  the
+          PXIPL  version  specification  will  be  identical  to that of the XCLIB
+          specification, even tho this means jumping from
+
+                   PXIPL V2.6
+
+          to
+
+                   PXIPL for XCLIB V2.2
+
+          Further, the PXIPLDST.TXT file mistakenly states that it supports  XCLIB
+          V2.1 rather than XCLIB V2.2, and limits mention of supported versions of
+          Windows to 95 and NT.  (20-Feb-2002).
+
+      2.  Added Feature:  Functions pxio8_fitswrite and pxio8_fitsread allow  sav-
+          ing and loading images in the FITS file format.  (01-Apr-2002)
+
+      3.  Fixed Feature:  The pxio8_DirectXDisplay used with a  S/VGA  in  32  bit
+          mode and the cursip option returned a PXERNOCOLOR error.  (04-Apr-2002).
+
+      4.  Added Feature:  The pxio8_avireadseq allows loading a sequence of images
+          from an AVI format file.  (26-Apr-2002).
+
+      5.  Improved Feature:  The pxio8_tifwrite, pxio8_tifread, and sequence vari-
+          ations now support image lengths and widths greater than 65535 when used
+          in 32 bit programming environment.  (25-Aug-2002).
+
+      6.  Improved   Feature:     The    pxio8_aviwriteseq,    pxio8_aviwriteseq2,
+          pxio8_avireadseq,  pxio8_tifwriteseq,  and  pxio8_tifreadseq now support
+          image file sizes up to 4 Gbyte under 32 bit Windows, instead of 2 Gbyte.
+          (04-Nov-2002).
+
+      7.  Fixed Feature:  The pxio8_binreadseq, with skip2=0 and  a  file  shorter
+          than  the  image  sequence,  may read the file into the applicable image
+          buffers correctly, but then write excess data into the  following  image
+          buffer.  (10-Jun-2003).
+
+      8.  Added Feature:  The new pximage_memmalloc2 and pximage3_memmalloc2  pro-
+          vide   a   similar   result   as   the  existing  pximage_memmalloc  and
+          pximage3_memmalloc, namely an image buffer along with a pximage, but are
+          much  easier  to  call from non-C/C++ programming environments.  The new
+          pximage_setwind and pximage3_setwind allow setting the area of  interest
+          window  of any pximage or pximage3 without utilizing structures, and are
+          much easier to call from non-C/C++ programming  environments.   (20-Jun-
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 2 -
+
+
+
+          2003)
+
+      9.  Added   Feature:    The   new   pxip8_geotranwarp2   is    similar    to
+          pxip8_geotranwarp, but warps the entire image with a single set of poly-
+          nomials, rather than partioning the  image  into  quadrilaterals.   (20-
+          Jul-2003)
+
+     10.  Fixed Feature:  Recent versions (prior 3 months) of  pxip8_pixthreshold3
+          and  pxirp8_pixthreshold3  produce  an error when either invalue or out-
+          value is NULL.  (03-Sep-2003).
+
+     11.  Improved Feature:  The pxip8_copyinterpolate now supports color  pixels,
+          and supports `ushort' pixels.  (04-Sep-2003).
+
+     12.  Improved Feature:  The pxio8_avireadseq pxio8_aviwriteseq are now avail-
+          able in all environments, not just Windows.  (15-Nov-2003).
+
+     13.  Fixed Feature.  The pxip8_correlateprof and pxip8_correlatefind may  not
+          operate properly with pixel values larger than 255.  (15-Dec-2003).
+
+     14.  Added   Feature:    The   pxio8_tifwriteseqinit,   pxio8_tifwriteseqadd,
+          pxio8_tifwriteseqdone,    pxio8_aviwriteseqinit,   pxio8_aviwriteseqadd,
+          pxio8_aviwriteseqdone, pxio8_binwriteseqinit, pxio8_binwriteseqadd,  and
+          pxio8_binwriteseqdone  allow saving an image sequence incrementally, one
+          image at a time, to a single TIFF format, AVI format, or  binary  format
+          file, respectively.  (27-Feb-2004).
+
+     15.  Added Feature:  The `struct pximregion', and the functions that use  it,
+          now  support  rotated rectangles and ellipses, and variations of rectan-
+          gles and ellipses which utilize floating  point  parameters  instead  of
+          integers,  allowing  for more precise specification of the rectangles or
+          ellipse.  (26-Apr-2004).
+
+     16.  Improved Feature:  The pxio8_print now supports formatting of grey level
+          images for printing on PostScript compatible printers.  (01-Jun-2004).
+
+     17.  Added Feature:  The pxio8_DIBCreate copies an image into a Windows  Dev-
+          ice Independent Bitmap (DIB) in Windows global memory.  (02-Aug-2004).
+
+     18.  Improved Feature:  The pxio8_aviwriteseqinit, pxio8_aviwriteseqadd,  and
+          pxio8_aviwriteseqdone,  now  allows  creating a sequence whose length is
+          not pre-specified, and which may be shorter or longer than specified  as
+          the nimages parameter to pxio8_aviwriteseqinit.  (29-Dec-2004)
+
+     19.  Improved Feature:  The pxio8_tifwrite, pxio8_tifread, pxio8_tifwriteseq,
+          pxio8_tifreadseq,  and  pxio8_tifwriteseqadd now support LZW compression
+          of mono and color images.  (30-Jan-2005)
+
+     20.  Fixed Feature:  The pxio8_aviwriteseqinit  and  pxio8_aviwriteseqadd  do
+          not work correctly with pixels larger than 8 bits.  (13-May-2005).
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 3 -
+
+
+
+     21.  Added   Feature:    New    functions    pxio8_aviodmlwriteseqinit    and
+          pxio8_aviodmlwriteseq  support  the  AVI 2.0 file format, allowing files
+          larger than 4 Gbyte, subject to support by the underlying operating sys-
+          tem.  (30-Dec-2005).
+
+
+    RELEASE NOTES: PXIPL  - Version ?.?
+
+      1.  Fixed   feature:    The    pxip8_copyskewlr,    pxip8_copyskewud,    and
+          pxip8_copyreverse  did  not  work  properly  on color images with pixies
+          larger than 1 byte.  (07-Sep-2000).
+
+      2.  Fixed feature:  The pxio8_tifread and pxio8_tifreadseq did not correctly
+          load  TIFF images saved in Motorola byte order with more than 8 bits per
+          pixel.  (Note: Images saved by PXIPL were always in  Intel  byte  order,
+          and are not affect by this problem.)  (05-Oct-2000).
+
+      3.  Modified    feature:     The    pxio8_vgadisplay,    pxio8_vgawaterfall,
+          pxio8_GDIDisplay, pxio8_GDIWaterfall, pxio8_DirectXDisplay functions now
+          allow displaying an image in PXHINTRGB or  PXHINTRGBX  format,  avoiding
+          having to explicitly convert such an image to PXHINTBGR.  (01-Jan-2001).
+
+      4.  Documented   feature:    Missing   documentation   for   the    existing
+          pximage3_memory function has been restored.  (22-Jan-2001).
+
+      5.  Fixed  Feature:   The  pxip8_patternfiducial,  pxip8_patternalign,   and
+          pxip8_testpattern   did   not   work   properly  with  the  new  XCLIB's
+          pxd_defineImage.  (23-Jan-2001).
+
+      6.  Added feature:  Functions pximage_def3from2 and pximage_def2from3  allow
+          creating a 3-D reference to a 2-D image, or a 2-D reference to a `slice'
+          of a 3-D image, respectively.  (06-Feb-2001).
+
+      7.  Improved Feature:  The struct pximfileinfo has  been  enlarged  so  that
+          pxio8_fileinfo can return the image's aspect ratio in the same format as
+          used in a pximage.  Programs  which  use  struct  pximfileinfo  must  be
+          recompiled before using newer DLL's.  (13-Feb-2001).
+
+      8.  New Feature:  The pxip8_drawchars5 allows drawing text  using  any  sup-
+          plied Windows font.  (26-Feb-2001).
+
+      9.  New Feature:  The pxip8_findpixelmin and pxip8_findpixelmax allow  find-
+          ing the minimum or maximum pixel value in an AOI.
+
+     10.  Improved  Feature:    The   pxip8_copyinterpnearest,   pxio8_vgadisplay,
+          pxio8_GDIDisplay,  and pxio8_DirectXDisplay now provide a `near neighbor
+          deflicker' interpolation which reduces  display  artifacts  due  to  the
+          image being interlaced (horizontally and/or vertically).  (05-May-2001).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 4 -
+
+
+
+     11.  Fixed Feature:  The pxio8_bmpread would cause a memory protection  fault
+          if the specified file name does not exit.  (16-Jul-2001).
+
+     12.  Fixed Feature:  The pxip8_NxNdynthreshold may cause a memory  protection
+          fault under Windows NT.  (19-Jul-2001).
+
+     13.  Improved    Feature:     The    pxio8_vgadisplay,    pxio8_vgawaterfall,
+          pxio8_GDIDisplay, pxio8_GDIWaterfall, and pxio8_DirectXDisplay now allow
+          the optional palette to be applied at the image's bit depth  instead  of
+          at  the  display's  bit  depth.   The distinction is only important with
+          images with more than 8 bits per  pixel  component;  the  former  option
+          allows  using the palette to view the pixel's low order bits, the latter
+          option is quicker.
+
+     14.  New version released in conjunction with XCLIB V2.2, adding support  for
+          Windows XP.  (03-Dec-2001).
+
+     15.  Improved   Feature:    The   pxio8_vgadisplay,   pxio8_GDIDisplay,   and
+          pxio8_DirectXDisplay  now  allow  rendering  of only odd (or even) image
+          lines into only odd (or even) S/VGA lines, allowing interlaced rendering
+          of an interlaced image.  (08-Jan-2002).
+
+     16.  Added Feature:  The pxio8_DrawDibDisplay allows rendering  of  an  image
+          via  the Video for Windows API.  This API may be slightly slower on some
+          computers than other API's, but may  reduce  the  appearance  of  `band'
+          artifacts  due  to  the S/VGA and PIXCI(R) imaging board being asynchro-
+          nous.  (21-Jan-2002).
+
+     17.  Fixed  Feature:   Images  with  highly  saturated  pixels  loaded   with
+          pxio8_jpegread may show color speckles.  (12-Feb-2002).
+
+     18.  New Feature:  The pxip8_histabpair and pxirp8_histabpair allow  computa-
+          tion of a histogram of signed differences of corresponding pixels of two
+          images or image regions.  (08-Oct-2002).
+
+     19.  Improved Feature:  The  pxio8_tifwriteseq  and  pxio8_tifwriteseq  under
+          Windows 95/98/ME/NT/2000/XP now support file sizes up to 4 Gbyte, rather
+          than 2 Gbyte.  (29-Oct-2002).
+
+
+    RELEASE NOTES: PXIPL  - Version 2.6
+
+      1.  Release for use with XCLIB V2.1, supporting 32 bit extended DOS and Win-
+          dows 95/98/NT/2000 32 bit environments.  (15-Aug-2000).
+
+      2.  Modified feature:   A  fourth  and  new  parameter  has  been  added  to
+          pxip_fractedges  allowing  threshold  the  edge  strengths  before being
+          ordered by the mode.  Existing programs may simply add a parameter of 0.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 5 -
+
+
+
+      3.  New feature:   Functions  pxip8_drawchars3  and  pxip8_drawchars4  allow
+          drawing  text  on  an  angle,  drawing  with options provided with other
+          graphics style functions, and drawing with user supplied fonts.
+
+      4.  Modified feature:  Function pxio8_GDIDisplay now allows  drawing  images
+          on   a   VGA  which  is  in  16  bits  per  pixel  mode.   New  function
+          pxio8_GDIDirectXDisplay allows drawing images on Direct Draw `surfaces'.
+
+      5.  Modified  feature:   A   thickness   parameter   has   been   added   to
+          pxip8_drawline,   pxip8_drawbox,   pxip8_drawellipse,  pxip8_drawbezier,
+          pxirp8_drawpath,  pxirp8_drawboundary,  and  pxip8_drawarrow.   Existing
+          code  should simply insert a value of 0 following the dotspacing parame-
+          ter.
+
+      6.  New feature:  Function pxip8_drawellipsesect allows drawing sections, or
+          arcs, of a rotated ellipse.
+
+      7.  New feature:  Region types of annulus, arc of annulus,  and  rectangular
+          frame have been added.
+
+      8.  New feature:  Function pxio8_aviwriteseq allows writing  a  sequence  of
+          images to a Windows Video (.avi) format file.
+
+      9.  New feature:  Functions pxip8_radialmass and pxip8_radialmassf compute a
+          table of the sum of pixels values versus their distance from an origin.
+
+     10.  New feature:  Function pxip8_noiseadd adds psuedo-random  noise  with  a
+          variety  of distributions to an image.  The pxip8_dithernormal is depre-
+          cated; new applications should use pxip8_noiseadd.
+
+     11.  Modified feature:  Function  pxip8_spatialquantize  now  supports  color
+          images.
+
+     12.  Modified feature:   A  fourth  and  new  parameter  has  been  added  to
+          pxio8_fileinfo.   Existing  programs  may  simply  add a parameter of 0.
+          (04-Oct-1999).
+
+     13.  New feature:  Functions pxio8_jpegread and pxio8_jpegwrite allows  writ-
+          ing  and  reading images in JPEG/JFIF format with selectable quality and
+          compression.  (04-Oct-1999).
+
+     14.  New feature:  Region type of window has been added.  Unlike the existing
+          type of `PXIMREGWIND', a window type is clipped by the pximage.wind, and
+          may be partly or entirely out of the image's bounds.  (22-Nov-1999).
+
+     15.  New feature:  Region types  of  negative  ellipse,  negative  rectangle,
+          negative polygon, negative path, negative annulus, negative annulus arc,
+          negative frame, and negative window have been added which is the comple-
+          ment  of  the  underlying  region's  area,  bounded by the pximage.wind.
+          (22-Nov-1999).
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 6 -
+
+
+
+     16.  New     feature:       Functions      pxip8_xlacecolumntohalves      and
+          pxip8_xlacehalvestocolumn  exchange  pixels  on  each line, from odd and
+          even locations to left-half and right half locations; a horizontal  ana-
+          log  to  pxip8_ilacelinetofield  and  pxip8_ilacefieldtoline.   (22-Nov-
+          1999).
+
+     17.  New function pxip8_recursiveaverage implements  recursive  averaging  of
+          corresponding pixels.  (26-Nov-1999).
+
+     18.  New functions pxirp_regionexport and pxirp_regionimport allow  exporting
+          and importing the pximregion structure.  (22-Dec-1999).
+
+     19.  The pxip8_geotranrotate did not work correctly on color  images,  inter-
+          changing colors.  (22-Dec-1999).
+
+     20.  When used with color images, pxio8_tgawrite may swap the  red  and  blue
+          pixel components.  (17-Jan-2000).
+
+     21.  Modified feature:  The  pxip8_integratebufs  and  pxip8_averagebufs  now
+          support color images.  (29-Feb-2000).
+
+     22.  Manual Correction:  The pxip8_drawellipse and pxip8_drawellipsesect were
+          described  as  accepting x and y radius parameters.  The functions actu-
+          ally used the parameters as the x and y diameter.  (10-Jul-2000).
+
+     23.  Fixed feature:  The pxip8_spatialquantize produced incorrect results for
+          color  images  for the rightmost and/or bottom-most bin, where rightmost
+          and/or bottommost bin was not a full xsize and/or ysize blocksize.
+
+     24.  Fixed feature.  The pxirp_regionshapef produced invalid results or  page
+          faults  for regions of type PXIMREGWINDOW; an uncommon, but legal, shape
+          due to its trivial analysis.  (14-Aug-2000).
+
+
+    RELEASE NOTES: PXIPL  - Version 2.5
+
+      1.  Manual update: A  new  second  and  third  parameter  has  inserted  for
+          pxio8_vgawaterfall,   pxio8_WaterfallToDevice,  and  pxio8_GDIWaterfall,
+          allowing specification of alternate function to indicate  video  timing.
+          Existing programs may simply define:
+
+                   ulong _cfunfcc vbtime(void *unused)
+                   {
+                       return(pxdrv_xvbtime());
+                   }
+
+          and use `vbtime' and `NULL' as the second and third parameters.
+
+      2.  New  function  pxip_particleflow  tracks  multiple  particles  across  a
+          sequence of images.
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 7 -
+
+
+
+      3.  Functions     pxio8_tiffwrite,      pxio8_tiffread,      pxio8_tiffparm,
+          pxio8_tiffparmr,  and  pxio8_tiffreadrsz  have  been  superceded  by  of
+          pxio8_tifwrite, pxio8_tifread, and pxio8_fileinfo which  offer  improved
+          support  for  color  images,  palettes whose size may not be 256x3 8 bit
+          entries, provide additional resizing options, and Pack Bits  compression
+          for  pixels with more than 1 bit.  The old style functions are available
+          by appending `_old' to the name, e.g.  `pxio8_tiffread_old'.
+
+             New functions pxio8_tifwriteseq  and  pxio8_tifreadseq  provide  con-
+          venient  saving  and  loading  of  image sequences to/from a single TIFF
+          file.
+
+             New functions pxio8_pcxwrite and pxio8_tgawrite allow saving an image
+          in PCX and Targa formats, respectively.
+
+      4.  A tenth parameter, currently reserved, has been added to pxip8_drawicon;
+          a value of NULL must be used.
+
+      5.  Under DOS and under Tenberry (Rational) DOS extender, the  new  vga_open
+          and  vga_close  support  access  to  a  S/VGA  via  the standard pximage
+          methods.  The vga_ functions are  available  for  Microsoft  and  Watcom
+          C/C++  compilers,  but currently not available for Borland C.  New func-
+          tions    pxio8_vgadisplay,    pxio8_vgacoord,    pxio8_vgacursor,    and
+          pxio8_vgawaterfall   provide  convenient,  and  optimized,  routines  to
+          display images, with optional palette  or  lookup  table  modifications,
+          with optional nondestructive cursor, onto the S/VGA.
+
+             Under Windows, the pxio8_CopyToDevice,  pxio8_CopyToDeviceCoord,  and
+          pxio8_WaterfallToDevice   have   been  superceded  by  pxio8_GDIDisplay,
+          pxio8_GDICoord, pxio8_GDICursor, and pxio8_GDIWaterfall.  The new  func-
+          tions  support palette or lookup table modifications, improved API effi-
+          ciency for cursor drawing, and explicit support for erasing and  redraw-
+          ing  a  cursor  over an already displayed image.  The previous functions
+          remain available.
+
+      6.  For   TIFF   format   files,    pxio8_fileinfo    would    always    set
+          tiff.resolutionunits to 0.  (24-Apr-1999).
+
+      7.  Many PXIPL functions now support processing of color images.
+
+      8.  The pxio8_bmpread and pxio8_tifread do not work correctly on images with
+          palettes,  where the number pixel bits resulting from the palette was no
+          the log of the number of palette entries (e.g. a palette of 8 bit values
+          indexed  by  8  bits  is ok, a palette of 8 bit values indexed by 1 or 4
+          bits is not ok).  (05-Aug-1999).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 8 -
+
+
+
+    RELEASE NOTES: PXIPL  - Version 2.2
+
+      1.  Most PXIPL functions now support processing 10, 12, 14 or  16  bits  per
+          pixel images.
+
+      2.  To allow shared use of PXIPL functions in a  multi-tasking  environment,
+          support  for  premature  termination  has  been  changed.   The previous
+          pxip_breakfunc function, which set a termination function address, is no
+          longer  provided.  Instead, each PXIPL function which supports premature
+          termination now requires  an  additional  parameter  (always  the  first
+          parameter),  which  is  the  address  of  the address of the termination
+          predicate function.
+
+             Old code which doesn't require the premature termination feature  can
+          be easily converted by adding a NULL as a first parameter.
+
+      3.  Taking advantage of the move to 32 bit code, many  PXIPL  functions  are
+          now faster, albeit achieved at the expense of larger code.
+
+      4.  The name of PXIPL's master include file has been changed from PXIP8.H to
+          PXIPL.H,  to  be more representative of its function.  To allow compila-
+          tion of old programs  without  change,  PXIP8.H  is  now  a  stub  which
+          includes PXIPL.H.
+
+      5.  A new structured and object oriented method of accessing image data uses
+          functions  associated  with the pximage structure (C++ people would term
+          it a virtual class, but the implementation  is  also  available  in  C).
+          Among other advantages, the PXIPL functions, which accept pximage refer-
+          ences, can now be led into operating upon images stored in PC memory, as
+          well as imaging board memory, and support pixels larger than 8 bits.
+
+      6.  The pxio8_CopyToDevice and pxio8_WaterfallToDevice  now  have  a  second
+          unused parameter following the first, which should also be NULL.
+
+      7.  The pxirp8_connectregion is now, approximately, two times faster.  A new
+          option,   to   assume   convex   shapes  (such  as  for  blobs),  allows
+          pxirp8_connectregion to run, additionally, two times faster.
+
+      8.  New functions pxip8_findpixelv and pxirp8_connectregionv are similar  to
+          pxip8_findpixel and pxirp8_connectregion, respectively, but allow speci-
+          fying a comparison and value (such as `>=120') rather than specifying  a
+          table and bit test.  The new functions avoid the user having to set up a
+          table, and are slightly faster than the table versions.
+
+      9.  New functions pxip8_pixthreshold2 and  pxirp8_pixthreshold2  provide  an
+          alternate  pixel thresholding, avoiding, in some applications, having to
+          use pxip8_pixthreshold and pxirp8_pixthreshold twice.
+
+     10.  New functions pxip8_normalizelinemean and  pxip8_normalizecolmmean  nor-
+          malize  lines  or  columns  of pixels based upon each line's or column's
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 9 -
+
+
+
+          mean.
+
+     11.  The pxio8_print now supports printing on the Alden 9315 Continuous  Tone
+          (i.e. grey level) printers.
+
+     12.  The pxip8_normalizespecklemask is clarified to use horizontally adjacent
+          pixels,  is  improved to correct with a next to adjacent good pixel, and
+          is faster.
+
+     13.  The pxip8_ilacepairswap now allows swapping pairs of columns, as well as
+          lines.
+
+     14.  The pxio8_hexrite now allow specifying a character to be  written  after
+          each  line  of  pixels.   The  pxio8_hexread now ignores non-hexadecimal
+          characters,  except  when  occurring  within  the  group  of  characters
+          representing a pixel's value (which causes an error).
+
+     15.  The pxip8_spatialquantize, when used in shrink mode, now fills the image
+          area beyond the shrunken image with pixel value 0.
+
+     16.  To accommodate 16 bit pixels, the value  element  of  the  pxip8histperc
+          structure is now `uint', rather than `uchar'.
+
+     17.  The pxirp8_paintregion, pxip8_pclfontdraw, and pxip8_drawchars have been
+          modified;  their  `background' parameter was both a value and type code.
+          To allow a greater range of pixel values, a separate `groundtype' param-
+          eter has been added (preceding the `background' parameter).  Also, their
+          background and foreground parameters are now uint arrays  (of  dimension
+          1, for grey levels).  Existing programs may be easily converted by list-
+          ing the currently used value for `background' twice (i.e. using the same
+          parameter for `groundtype'), and using the `&' (address of) on the back-
+          ground and foreground uint variables.
+
+     18.  The   pxio8_fmbwrite,   pxio8_fmbread,   pxvib_gotrig,    pxvib_gotrig2,
+          pxvib_gotrigseq,          pxvib_gosequence,          pxvib_gosequencesh,
+          pxip8_copyintoradrs, and pxip8_copyfromradrs are no longer part  of  the
+          PXIPL,  but  instead  are included with SVOBJ or 4MOBJ.  For the sake of
+          consistency,   the   pxvib_gotrig,    pxvib_gotrig2,    pxvib_gotrigseq,
+          pxvib_gosequence, and pxvib_gosequencesh functions have been modified to
+          accept the same style of premature termination  parameter  as  added  to
+          other PXIP functions.
+
+     19.  The  pxip8_fft,  pxip8_ffti,  pxip8_fftlogmag,  pxip8_fftlmagscale,  and
+          pxip8_fftfilterz have been improved so that the complex coefficients can
+          be stored in any suitable pximage (see above), rather than being limited
+          to  imaging  board  memory.   The  old  style functions are available by
+          appending `_old' to the name, e.g.  `pxip8_fft_old'; however,  the  _old
+          functions no longer support premature termination.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 10 -
+
+
+
+             The new pxip8_fftsetcimage allows convenient access  to  the  complex
+          coefficients.
+
+     20.  The pxip8_averagebufs and  pxip8_integratebufs  have  been  improved  to
+          allow  operation  on any 3-d pximage (see above), rather than being lim-
+          ited to imaging board memory.  The old style functions are available  by
+          appending  `_old'  to  the name, e.g.  `pxip8_averagebufs_old'; however,
+          the _old functions no longer support premature termination.
+
+     21.  The pxip8_momentsf and pxirp8_momentsf now accept two  distinct  maprefp
+          parameters;  one  for  the mapzifunc and the second for the mapxyhvfunc.
+          Allowing distinct mapzifunc simplifies the user provided  mapzifunc  and
+          mapxyhvfunc functions.
+
+     22.  The pxip8_drawline, pxip8_drawbox,  pxip8_drawarrow,  pxip8_drawellipse,
+          pxip8_drawbezier,  pxirp8_drawboundary,  and  pxirp8_drawpath  have been
+          improved so that in modes 'b' and 'R' pixels are exchanged or written to
+          a  second  pximage, rather than a uchar buffer.  This supports non-uchar
+          pixels, and prevents overwriting the uchar buffer.  Also, the  functions
+          are  improved  to allow `returning' a `long' pixel count.  The old style
+          functions  are  available  by  appending  `_old'  to  the   name,   e.g.
+          `pxip8_drawline_old'.
+
+     23.  The PXIPL library now supports the TI TMS320C40 C Compiler, for use with
+          the  4MEG  VIDEO  and  COC40.   Functions which save/load images to/from
+          disk, or display images on the VGA are, of course, not supported.
+
+             The most popular functions are also available  in  `bound'  versions,
+          host  callable routines which automatically load and execute a TMS320C40
+          image processing program to perform the specified operation.  The  bound
+          routines can be used without the TMS320C40 C compiler.
+
+     24.  New function pxirp8_followregionv follows an image  region's  perimeter,
+          and encodes the path into a pximregion.
+
+     25.  New function pxip8_correlateprof performs a correlation of a mask on  an
+          image, creating an image with a correlation profile.
+
+     26.  New function pxip8_seqtile allows reducing a sequence of images  into  a
+          single image.
+
+
+    RELEASE NOTES: PXIPL  - Version 2.0
+
+      1.  Release for use with SVOBJ V7.0 and 4MOBJ V3.0, supporting 16  bit  DOS,
+          32 bit extended DOS, and 16 bit Windows environments.
+
+      2.  New function pxio8_print provides image printing on Hewlett-Packard  and
+          other  popular  printers,  with  the  same  features  as is found in the
+          4MIP/SVIP Image Printing menus.
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 11 -
+
+
+
+      3.  New function pxio8_CopyToDevice  copies  an  image  buffer  or  area  of
+          interest  to  a  Windows  device  context (i.e. displays an image on the
+          (S)VGA).  New function pxio8_WaterfallToDevice displays  a  sequence  of
+          lines,  taken from a sequence of video fields, in waterfall fashion on a
+          Windows device context.
+
+      4.  The pxio8_tiffwrite, pxio8_tiffread, and pxio8_tiffreadrsz  now  support
+          the same compression options as provided in 4MIP/SVIP.
+
+      5.  The pxip8_geotranrotate is now, approximately, two times faster.
+
+      6.  A new pxip8_smptevitcdecode option allows reporting garbled VITC codes.
+
+      7.  The    subfile    parameter    of    pxio8_tiffwrite,    pxio8_tiffread,
+          pxio8_tiffparm,  and  pxio8_tiffreadrsz  is  now  a `long' instead of an
+          `int'.  A copyright notice, as per V6 of the TIFF specification, can now
+          be saved via pxio8_tiffwrite and observed via pxio8_tiffparm.
+
+      8.  The function modifier of library functions has changed.  Instead of  the
+          default  `_cdecl',  functions  are  now  defined  to be type `_cfunfcc',
+          `_cfunvcc', `_cfunacc'.  These types are predefined, and  vary  in  dif-
+          ferent  environments  (e.g.  DOS, Windows, and various compilers).  This
+          allows, for example, the Windows DLL to be composed  of  _PASCALL  func-
+          tions, or callback functions to be more efficient.  As the include files
+          declare all library functions appropriately, the change  is  transparent
+          except  for  users of library functions which invoke callback functions;
+          the function called back must be of type `_cfunfcc'.  The affected func-
+          tions   are:    pxip_breakfunc,   pxvib_gosequence,  pxvib_gosequencesh,
+          pxvib_gotrig,    pxvib_gotrig2,     pxip8_momentsf,     pxirp8_momentsf,
+          pxip8_histstatf, and pxirp_regionshapef.
+
+      9.  New function pxip8_pairor does Inclusive-OR of corresponding  pixels  of
+          two images.
+
+     10.  New function pxirp_xlatetopath translates a region into a path along the
+          region's outer boundary.
+
+     11.  Additional modes for pxip8_pairsub allow doing operations in both forms:
+
+                       B <- B-A
+               and     B <- A-B
+
+          without having to copy one or more image buffers.
+
+     12.  The pxip_fractedges now allows specifying a priority ordering for multi-
+          ple edges of the same strength, or reporting all edges without ordering.
+
+     13.  The   `(*abort)(void)'   callback    function    to    pxvib_gosequence,
+          pxvib_gosequencesh,  pxvib_gotrig, pxvib_gotrig2, and pxvib_gotrigseq is
+          now `(*abort)(void*)', which is called with an `abortrefp' as passed  to
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 12 -
+
+
+
+          the  `pxvib_' functions; allowing the called back function to receive an
+          arbitrary object, state, or stack frame reference.
+
+
+    RELEASE NOTES: PXIPL  - Version 1.8
+
+      1.  Release for use with SVOBJ V6.8 and 4MOBJ V2.8, 2.8.1.
+
+      2.  As object code, for use with Microsoft C V7.0 and V8.0 (Visual  C  V1.0)
+          or  Borland  C++  V3.1  in  M  and L models for DOS 3.0+ and for Windows
+          V3.0+.  Also provided as a Windows compatible DLL.
+
+      3.  New function pxip8_normalizebackground performs `flat-field'  background
+          normalization.
+
+      4.  New function pxip_fractedges performs subpixel  accuracy  edge  measure-
+          ments.
+
+      5.  Functions    pxio8_tiffwrite,     pxio8_tiffreadrsz,     pxio8_tiffread,
+          pxio8_tiffparm,     pxio8_fmbwrite,     pxio8_fmbread,    pxio8_binread,
+          pxio8_binwrite,  pxio8_hexread,  pxio8_hexwrite,   pxio8_bin1read,   and
+          pxio8_bin1write are now more network `friendly', opening files in a mode
+          which allows shared reading  and  exclusive  writing,  rather  than  the
+          default DOS `compatibility' mode.
+
+      6.  Function pxip8_spatialquantize now allows summing of blocks  of  pixels,
+          as an alternative to averaging blocks of pixels.
+
+      7.  Functions pxip8_fft and pxip8_ffti, when used on images with power of  2
+          dimensions,  are now approximately twice as fast.  The fft functions now
+          require approximately 50% less image  memory  space  for  the  frequency
+          domain's complex coefficients.
+
+      8.  Function pxip8_averagebufs now allows averaging a decrementing  sequence
+          of buffers, placing the result in the highest buffer of the sequence.
+
+      9.  New  function  pxip8_integratebufs  allows  integrating  a  sequence  of
+          buffers,  averaging  a  sequence of buffers, or weighted results between
+          integration and averaging.
+
+     10.  Function pxip8_findpixel now allows searching  for  pixels  in  the  up,
+          down,  left,  or  right  directions, in addition to the previous left to
+          right, top to bottom scan.
+
+     11.  Functions    pxip8_drawicon,    pxip8_drawbezier,     pxip8_drawiconhit,
+          pxip8_drawarrow,           pxip8_drawellipse,           pxirp8_drawpath,
+          pxirp8_drawboundary, pxip8_drawline, and pxip8_drawbox  now  support  an
+          XOR mode of pixel modification.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 13 -
+
+
+
+     12.  New mode for  pxip8_pairsub  permits  subtraction  with  the  difference
+          divided  by 2 and added to 128; producing a more visually useful differ-
+          ence image.
+
+     13.  New functions pxip8_pixthresholdcnt and pxirp8_pixthresholdcnt count the
+          number  of pixels that are greater than or equal to a threshold, and are
+          faster  than  obtaining  similar  information   from   pxip8_histab   or
+          pxirp8_histab.
+
+     14.  New function pxirp_regionarea  provides  the  pixel  area  of  an  image
+          region,   faster   than   functions   such   as   pxirp_regionshapef  or
+          pxirp8_moments which also compute other information.
+
+     15.  New function pxip8_patterngaussian draws 2-D Gaussian patterns.
+
+     16.  The pxip8_masscenter and pxirp8_masscenter are now 25 to 50% faster.
+
+     17.  The pxirp8_connectregion is now 2 to 4 times faster when used with video
+          turned  off.   Various  `pxirp8_' functions, when used with a non-simple
+          region (such as a path which intersects itself) are also faster.
+
+     18.  New functions pxip8_morperode3x3 and pxip8_morpdilate3x3 perform erosion
+          and  dilation  with  3x3 structure elements.  These functions are faster
+          than pxip8_morperode and pxip8_morpdilate,  but  don't  allow  arbitrary
+          structure elements and don't report result counts.
+
+     19.  The mass parameter of pxip8_masscenter and  pxirp8_masscenter  has  been
+          changed  from a 32 bit integer to a double float, to prevent overflow of
+          the computed mass of large images.
+
+     20.  The pximregion structure has been simplified.  The various regions  that
+          define  a private member of structure for start or origin xy coordinate,
+          now use a common origin  member  of  structure.   Thus  for  rectangles,
+          ellipses, or paths change
+
+               instance.region.rectangle.origin
+               instance.region.ellipse.origin
+               instance.region.path.start
+
+          all to
+
+               instance.origin
+
+          The polygon region vertices are now relative to the origin; old code may
+          be simply adapted with:
+
+          instance.origin.x = 0;
+          instance.origin.y = 0;
+
+          These changes promote easier manipulation of regions as an  object;  the
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 14 -
+
+
+
+          position can be changed by a common method.
+
+             A new scan list type, PXIMREGSCANLISTB, defines a scan list which  is
+          relative  to  the  instance.origin,  and  which  may  be  clipped by the
+          instance.image.wind.   The  original  PXIMREGSCANLIST  is  not  changed;
+          defined in absolute coordinates, and assumed not clipped.
+
+     21.  New function pxvib_gotrig2 is similar to pxvib_gotrig, but  provides  an
+          option of not waiting for a trigger signal.
+
+     22.  The previous method of hooking an abort  option  into  image  processing
+          functions,  by  (re)defining  the  dosbroke  function, has been changed.
+          Instead, pxip_setbrokefunc should be  invoked  with  a  pointer  to  the
+          desired  predicate  function.   This  change is necessary to support DLL
+          versions of the library.
+
+             Existing programs which use the dosbroke feature can be  easily  con-
+          verted by invoking:
+
+               pxip_breakfunc(dosbroke, NULL, NULL, NULL);
+
+          once, before any image processing functions are used.
+
+
+    RELEASE NOTES: PXIPL  - Version 1.7
+
+      1.  Release for use with SVOBJ V6.7 and 4MOBJ V2.7.
+
+      2.  For use with Microsoft C V6.00a and V7.00 or Borland C++ V2.0  and  V3.1
+          in  M and L models for DOS 3.0+.  For use with Microsoft C V7.00 or Bor-
+          land C++ V3.1 for Windows V3.0+.
+
+      3.  New function pxip8_copyinterpnearest performs image resizing by  nearest
+          neighbor   interpolation,   and   is   2   to   6   times   faster  than
+          pxip8_copyinterpbilinear.
+
+      4.  New function pxvib_gotrig allows capturing an image buffer  in  response
+          to an external trigger.  The pxvib_gotrig can also be used to trigger an
+          external device, generating a trigger in sync  with  video  timing,  and
+          then capturing an image buffer.
+
+      5.  New function pxio8_tiffreadrsz allows loading and resizing a TIFF  image
+          to fit the image buffer (or window), rather than being cropped.  While a
+          TIFF image smaller than an image buffer could always be loaded and later
+          expanded,  the  new  feature allows loading a TIFF image which is larger
+          than an image buffer.
+
+      6.  New function pxirp8_moments computes  moments,  central  moments,  scale
+          invariant  moments,  rotation invariant moments, and center of mass of a
+          nonrectangular image region.
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 15 -
+
+
+
+      7.  The pxip8_drawchars now allows drawing characters by adding a grey level
+          value  to  each  pixel, in addition to the previous mode of setting each
+          pixel to a grey level.  The new mode provides easier erasure of  charac-
+          ters.
+
+      8.  New function pxip8_histfit modifies an image so as  to  have  a  uniform
+          histogram, or a histogram of a specified shape.
+
+      9.  New function pxip8_histstatf  computes  histogram  statistics  using  an
+          arbitrary interpretation of pixel values, rather than the pixel's binary
+          value.  The pxip8histstat.sum has been changed from type `ulong' to type
+          `double' to allow supporting pxip8_histstatf.
+
+     10.  New  function  pxip8_momentsf  computes  moments  using   an   arbitrary
+          interpretation of pixel values, and an arbitrary interpretation of pixel
+          coordinates.  New function pxirp8_momentsf is similar to pxip8_momentsf,
+          but also allows use of a nonrectangular image region.
+
+     11.  New function pxip8_smptevitcdecode decodes SMPTE Vertical Interval  Time
+          Code information stored in an image buffer.
+
+     12.  File pxmp.h is now effectively included by pxip8.h.  The pxmp.h,  previ-
+          ously  required  for use of pxio8_ and other functions, should no longer
+          be included.
+
+     13.  Functions which read or wrote files previously returned a PXERDOSIO code
+          to indicate any file I/O error.  FILE I/O errors are now differentiated,
+          with the applicable functions returning a) PXERNOFILE when a file to  be
+          read  can't  be  found,  b) PXERNEWFILE when a file can't be created, or
+          c) PXERDOSIO for other DOS I/O problems such as insufficient disk  space
+          while writing or bad media.
+
+     14.  New function pxip8_copyreplic performs image enlargement (zoom) by pixel
+          replication.
+
+     15.  New function pxip8_geotranrotate performs image warping  as  defined  by
+          two corresponding sets of fiducial coordinates.
+
+     16.  New function pxip8_xlaceshuffle and pxip8_xlaceunshuffle  perform  pixel
+          shuffling  within pairs of lines, somewhat analogous to the shuffling of
+          lines performed by pxip8_ilacelinetofield or pxip8_ilacefieldtoline.
+
+     17.  Functions    pxip8_drawarrow,    pxip8_drawbezier,    pxip8_drawellipse,
+          pxip8_drawline,  pxip8_drawbox, pxirp8_drawboundary, and pxirp8_drawpath
+          now offer modes 'R' and 0, in addition to previous modes '+',  's',  and
+          'b'.  Mode 'R' allows reading pixels under the curve, mode 0 returns the
+          number of pixels that would be read or modified by the other modes.
+
+     18.  Edge detection functions pxip8_3x3sobel pxip8_3x3kirsch pxip8_2x2roberts
+          and  pxip8_3x3sobela  when  used  in  any  mode  except  mode=1, now set
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 16 -
+
+
+
+          boundary pixels to 0, indicating no edge,  instead  of  duplicating  the
+          nearest neighbor.  In mode=1, unsharp masking, boundary pixels are still
+          set to the nearest neighbor's value.  Similarly,  pxip8_NxNconvolve  and
+          pxip8_NxNconvolvef when used with modes and coefficients which represent
+          edge detection, now set boundary pixels to 0 instead of duplicating  the
+          nearest neighbor.
+
+     19.  New function pxirp_regionshape provides shape statistics describing non-
+          rectangular  image regions, such as width, height, major axis length and
+          angle, etc.
+
+     20.  Improved handling of nonrectangular image regions defined as PXIMREGPATH
+          allows paths in which the border overlaps or crosses itself.
+
+     21.  New function pxip8_copyexchange  exchanges  the  content  of  two  image
+          buffers,  without  requiring  a  third image buffer, or a file, for tem-
+          porary storage.
+
+     22.  New   functions   pxip_calibxyhv,   pxip_calibxyhvdone,    pxip_calibzi,
+          pxip_calibzidone,      pxip_calibzimap,      pxip_calibxyhvmap,      and
+          pxip_calibhvxymap support spatial and intensity calibration, mapping  X,
+          Y  coordinates  into  user-defined  H,  V coordinates, and mapping pixel
+          values into arbitrary intensity or density units.
+
+    RELEASE NOTES: PXIPL  - Version 1.6
+
+      1.  Release for use with SVOBJ V6.6 and 4MOBJ V2.6.
+
+      2.  For use with Microsoft C V6.00a or Borland C++ V2.0, in M and L  models,
+          for DOS V3.0+ or Windows V3.0 environments.
+
+      3.  New function pxip8_drawbezier draws curves defined by  Bezier  polynomi-
+          als,  of  up  to  10'th  order.  New function pxip8_drawellipse draws an
+          ellipse of selectable width, height, and rotation.
+
+      4.  New function pxip8_copyskewlr skews an image left and right,  new  func-
+          tion  pxip8_copyskewud  skews  an  image  up  and down.  These functions
+          approximate the effect of a small image rotation, but are  significantly
+          quicker than rotation.
+
+      5.  A new series of functions  allows  operations  on  nonrectangular  image
+          regions.   New  functions  pxirp8_histab,  pxirp8_pixmap, pxirp8_pixand,
+          pxirp8_pixor,     pxirp8_pixxor,      pxirp8_pixneg,      pxirp8_pixadd,
+          pxirp8_pixscale,         pxirp8_pixthreshold,        pxirp8_pixcontrast,
+          pxirp8_pixcontrastperc,        pxirp8_pixset,         pxirp8_masscenter,
+          pxirp8_binmasscenter,  and  pxirp8_copy  respectively compute histogram,
+          map pixels via lookup table, AND pixels w. constant, OR pixels  w.  con-
+          stant,  XOR  pixels w. constant, complement pixels, add constant to pix-
+          els, multiply pixels with constant, threshold of pixels, contrast modify
+          pixels,  contrast modify pixels as per histogram percentiles, set pixels
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 17 -
+
+
+
+          to constant, compute center of mass, compute binary center of mass,  and
+          copy       pixels.        New      functions      pxirp_xlaterecttopoly,
+          pxirp_xlatetoscanlist, pxirp8_connectregion and pxirp_regionbounds  per-
+          form  utility  operations on definitions of image regions.  New function
+          pxirp8_drawboundary   draws    region    boundaries.     New    function
+          pxirp8_paintregion  allows  painting  and filling of image regions, with
+          selectable   two-tone   patterns.    New   functions    pxirp8_drawpath,
+          pxirp_pathcreate,   pxirp_pathextend,   and  pxirp_pathcompress  support
+          regions defined by arbitrary paths.
+
+      6.  New  functions  pxip8_pcfontload,  pxip8_pcfontdraw,   pxip8_pcfontinfo,
+          pxip8_pcfontcinfo, and pxip8_pcfontunload allow drawing characters in an
+          image, with fonts defined  in  H-P  PCL  (LaserJet II)  compatible  font
+          files.
+
+      7.  New functions pxip8_pairprod and  pxip8_pairratio  respectively  compute
+          the  product and compute the ratio, of corresponding pixels of a pair of
+          images.
+
+      8.  New function pxip8_moments  computes  moments,  central  moments,  scale
+          invariant  moments, rotation invariant moments, and center of mass of an
+          image.
+
+      9.  The pxip8_copyinterpbilinear function now allows 90 degree rotations and
+          mirror  image  flips.   Setting the added fourth parameter to 0 provides
+          compatibility with the previous version of the function.
+
+     10.  New function pxip8_drawarrow draws an  arrow  of  specified  length  and
+          angle,  with  selectable  head  and  tail  arrow  length  and angle, all
+          corrected for aspect ratio to maintain consistent appearance  regardless
+          of rotation.
+
+     11.  Function pxip8_geotranrotate is now 3 to 8 times faster than the  previ-
+          ous version when used with video on.
+
+     12.  New function pxip8_NxNconvolvef performs NxN convolutions using floating
+          point coefficients.
+
+     13.  New function pxip8_findpixel searches for specified pixel values.   Com-
+          bined with pxirp8_connectregion, the two functions can be used to search
+          for and quantify image `blobs'.
+
+     14.  New functions  pxip8_bloblist  and  pxip8_bloblist2  provide  a  simpler
+          method of searching for, and listing, blobs in an image.
+
+     15.  An added mode parameter to  pxip8_pixadd  allows  selecting  bounded  or
+          modulo arithmetic.  Use of mode=2 provides the same effect as the previ-
+          ous version.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 18 -
+
+
+
+     16.  The pxip8_drawiconinit now requires that the initial pixblt parameter be
+          *NULL,  the  pxip8_drawiconfree  now requires the pixblt to be ** rather
+          than *, so that it can set pixblt to be *NULL.  The  modifications  pro-
+          mote safer and more robust malloc'ed memory handling.
+
+     17.  Reading and writing TIFF files is now 2 to 6  times  faster.   An  added
+          stripsize  parameter  to  pxio8_tiffwrite aids import of TIFF files into
+          other programs which do not support  standard  TIFF  strip  sizes.   The
+          stripsize should be 0 for compatibility with the previous version, forc-
+          ing use of the strip size recommended by the TIFF specification.
+
+     18.  New functions pxip8_3x3ranklow and pxip8_3x3rankhigh  perform  high  and
+          low  rank filtering, grey level analogs to the morphological erosion and
+          dilation operations.
+
+     19.  New function pxip8_normalizeintensity corrects images which should exhi-
+          bit  a  uniform intensity of background, but exhibit shading effects due
+          to nonuniform illumination.
+
+
+    RELEASE NOTES: PXIPL  - Version 1.5
+
+      1.  Release for use with SVDRV V6.5 and 4MDRV V2.5.
+
+      2.  Compiled under Microsoft C V5.1, M model and L model.
+
+      3.  New functions pxvib_gosequence and pxvib_gosequencesh  support  acquisi-
+          tion and display of sequences of image buffers.
+
+      4.  New   functions   pxip8_morperode,   pxip8_morpdilate,   pxip8_morpopen,
+          pxip8_morpclose,  pxip8_morphitmiss  and pxip8_binmaxisthin provide mor-
+          phological and thinning operations.
+
+      5.  New function pxip8_copyinterpbilinear  provides  bilinear  interpolation
+          which  is up to an order of magnitude faster than pxip8_copyinterpolate.
+          The pxip8_copyinterpolate remains the preferred interpolation  when  the
+          image size (either horizontal or vertical) is being reduced by more than
+          a factor of 2.
+
+      6.  New functions pxip8_ilacelinetofield and pxip8_ilacefieldtoline  convert
+          interlaced  images stored as consecutive lines to consecutive fields, or
+          vice  versa.   New  function  pxip8_ilacepairave  eliminates   interlace
+          flicker, at the expense of resolution, by averaging corresponding pixels
+          of    each    odd/even    line    pair    together.     New     function
+          pxip8_ilacemodsingular  reduces  interlace  flicker  caused by fine line
+          graphics,  while  minimizing  the  loss  of  resolution.   New  function
+          pxip8_ilacepairswap is a utility to swap the odd/even lines.
+
+      7.  New functions pxip8_copyintoradrs and pxip8_copyfromradrs perform  copy-
+          ing  from  image  buffers to raw image memory addresses.  Typical use is
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 19 -
+
+
+
+          copying images before or after image memory has been repartitioned by  a
+          change of video resolution.
+
+      8.  New function pxip8_copyreverse  performs  left/right  and/or  top/bottom
+          reversals  of  an  image.   New function pxip8_copyshift shifts an image
+          left/right and/or up/down.
+
+      9.  New  functions  pxip8_pixset  set  pixels  to  a  constant  value,   and
+          pxip8_pixadd adds a constant value to pixels.
+
+     10.  All functions with names of the form pxip8_line*, which were  previously
+          invoked by specifying the pxip8_line* name as an parameter to pxi8_nbyn,
+          have been renamed and are now invoked directly.  The affected  functions
+          are:
+
+               Old Name                    New Name
+               -------------------------------------------------
+               pxip8_line3kirsch           pxip8_3x3kirsch
+               pxip8_line2roberts          pxip8_2x2roberts
+               pxip8_line3sobel            pxip8_3x3sobel
+               pxip8_line3ksrthin          pxip8_3x3ksrthin
+               pxip8_line3median           pxip8_3x3median
+               pxip8_line3medianw          pxip8_3x3medianw
+               pxip8_line3binmedian        pxip8_3x3binmedian
+               pxip8_line3lowpass          pxip8_3x3lowpass
+               pxip8_line3lowpassmear      pxip8_3x3lowpassmear
+               pxip8_linedynthreshold      pxip8_NxNdynthreshold
+               pxip8_lineconvolve          pxip8_NxNconvolve
+
+          Use and effect of the new and old functions are  identical  (with  addi-
+          tional     enhancements     to    pxip8_NxNconvolve,    pxip8_3x3kirsch,
+          pxip8_2x2roberts, and pxip8_3x3sobel, see below) but with simplification
+          of  the parameters; the updated documentation should be consulted.  This
+          change reduces confusion in proper invocation of these  operations,  and
+          promotes consistency among all library functions.
+
+     11.  Additional  NxN  convolution  parameter  for  pxip8_NxNconvolve,  allows
+          specifying an offset to be added to the sum of products before division.
+          A second parameter allows specifying the divisor; or use of the standard
+          `sum  of  coefficients'.   Both parameters should be 0 for compatibility
+          with previous versions.
+
+     12.  Additional functions to perform special cases of  3x3  convolutions  are
+          added.   The  pxip8_3x3lowpassf  performs a low pass filter, or average,
+          with fixed mask  coefficients.   The  pxip8_3x3sharpenl  performs  image
+          sharpening, or high pass filter, using laplacian mask coefficients.
+
+     13.  The pxip8_3x3kirsch,  pxip8_2x2roberts,  and  pxip8_3x3sobel  accept  an
+          additional  mode,  assigning the unscaled magnitude to the result image.
+          New function pxip8_3x3sobela performs Sobel  operations  using  absolute
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 20 -
+
+
+
+          values,  which  is  quicker than the pxip8_3x3sobel which performs root-
+          mean-square.
+
+     14.  New function pxip8_geotranrotate performs image rotation about an  arbi-
+          trary origin, including correction for aspect ratio.
+
+     15.  Added pxip8_NxNcontrastinvert to perform inverse contrast ratio mapping.
+
+     16.  New functions pxip8_fft, pxip8_ffti, pxip8_fftlogmag, pxip8_fftmagscale,
+          and  pxip8_fftfilterz perform Discrete Fourier Transform (and FFT) image
+          processing  operations,  conversions  between  spatial   and   frequency
+          domains,  display  of a magnitude plot of the frequency domain, root and
+          Gaussian filters, and filtering of the frequency domain  by  scaling  of
+          complex coefficients.  A math coprocessor is strongly recommended.
+
+     17.  New function pxip8_drawicon draws cursors and arbitrary  bitmap  defined
+          icons  into  an  image.   New  lower level functions pxip8_drawiconinit,
+          pxip8_drawiconhit, pxip8_drawiconhitr, and pxip8_drawiconfree which exe-
+          cute various phases of pxip8_drawicon are also available.
+
+     18.  Modified pxip8_drawline to clip line segments in  reference  to  a  rec-
+          tangular area of interest.  New function pxip8_drawbox draws rectangular
+          boxes  in  an  image,  generally  faster  than   four   invocations   of
+          pxip8_drawline.
+
+     19.  New functions pxio8_binread and pxio8_binwrite load and  save  an  image
+          area  of interest to/from a file in X/Y format as 1 pixel per byte.  New
+          functions pxio8_bin1read and pxio8_bin1write load and save an  image  in
+          X/Y  format  as  1  pixel  per  bit.   New  functions  pxio8_hexread and
+          pxio8_hexwrite load and save an image in X/Y format as  1  pixel  per  2
+          hexadecimal    ASCII    characters.    New   functions   pxio8_tiffread,
+          pxio8_tiffwrite, pxio8_tiffparm, and pxio8_tiffparmr load  and  save  an
+          image  area  of  interest,  and  optionally an associated color palette,
+          to/from a file in the TIFF file format at 1 to 8 bits per pixel.
+
+     20.  The pxip8_drawchars has been improved to draw characters with  no  back-
+          ground  fill,  as well as with background fill.  Antialiasing can now be
+          done with both a foreground and background grey  level  specified.   Old
+          code using this function should be modified.
+
+    RELEASE NOTES: PXIPL  - Version 1.1
+    RELEASE NOTES: PXIPL  - Version 1.2
+
+      1.  Initial release for use with SVDRV V6.4 and 4MDRV V2.4.
+
+      2.  Compiled under Microsoft C V5.1, M model and L model.
+
+      3.  Function pxip8_dithernormal does not appear  in  printed  documentation.
+          The pxip8_dithernormal is similar to pxip8_dither, but adds noise with a
+          normal (Gaussian) distribution.  Arguments and  return  values  are  the
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 21 -
+
+
+
+          same  as  pxip8_dither, except instead of ditherbits the third parameter
+          is a double variance, defining the variance of the noise.  A math copro-
+          cessor is suggested.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

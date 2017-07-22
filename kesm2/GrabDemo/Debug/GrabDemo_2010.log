@@ -1,0 +1,46 @@
+﻿Build started 2/29/2016 4:59:41 PM.
+     1>Project "C:\Users\Jaewook\Documents\kesm2\GrabDemo\GrabDemo_2010.vcxproj" on node 2 (rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "Debug\GrabDemo.lastbuildstate".
+     1>C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.Targets(1422,5): warning : The referenced project '..\..\..\..\Classes\Gui\SapClassGui_2010.vcxproj' does not exist.
+       InitializeBuildStatus:
+         Creating "Debug\GrabDemo.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       PreBuildEvent:
+         if not exist %SystemRoot%\SysWOW64 goto end
+         echo (Sapera LT warning) Compiling a 32-bit configuration under 64-bit Windows
+         :end
+         
+         :VCEnd
+       ClCompile:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I. /I.\include /I.\Classes\Basic /I.\Classes\Gui /I..\..\..\..\externals\CorLib /ZI /nologo /W4 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D WINVER=0x0501 /D _WIN32_WINNT=0x0501 /D _VC80_UPGRADE=0x0710 /D _AFXDLL /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Debug\\" /Fd".\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt GrabDemo.cpp GrabDemoDlg.cpp
+         GrabDemo.cpp
+         GrabDemoDlg.cpp
+     1>c:\users\jaewook\documents\kesm2\grabdemo\grabdemodlg.cpp(544): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>c:\users\jaewook\documents\kesm2\grabdemo\grabdemodlg.cpp(544): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : see declaration of 'strcpy'
+     1>c:\users\jaewook\documents\kesm2\grabdemo\grabdemodlg.cpp(547): warning C4800: 'BOOL' : forcing value to bool 'true' or 'false' (performance warning)
+     1>c:\users\jaewook\documents\kesm2\grabdemo\grabdemodlg.cpp(735): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>c:\users\jaewook\documents\kesm2\grabdemo\grabdemodlg.cpp(735): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : see declaration of 'strcpy'
+     1>c:\users\jaewook\documents\kesm2\grabdemo\grabdemodlg.cpp(736): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>c:\users\jaewook\documents\kesm2\grabdemo\grabdemodlg.cpp(736): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : see declaration of 'strcpy'
+         Generating Code...
+     1>c:\users\jaewook\documents\kesm2\grabdemo\grabdemodlg.cpp(786): warning C4715: 'CGrabDemoDlg::On_WM_APP_BSS_Receive' : not all control paths return a value
+       ResourceCompile:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D _AFXDLL /D _DEBUG /D _VC80_UPGRADE=0x0710 /D _AFXDLL /l"0x0409" /I.\Classes\Gui /nologo /fo"Debug\GrabDemo.res" GrabDemo.rc 
+       Link:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Debug\GrabDemo.exe" /INCREMENTAL /NOLOGO .\Lib\Win32\SapClassBasic.lib .\Lib\Win32\VS2010\SapClassGuiD.lib /MANIFEST /ManifestFile:"Debug\GrabDemo.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:".\Debug\GrabDemo.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"Debug\GrabDemo.lib" /MACHINE:X86 Debug\GrabDemo.res
+         .\Debug\GrabDemo.obj
+         .\Debug\GrabDemoDlg.obj
+         GrabDemo_2010.vcxproj -> C:\Users\Jaewook\Documents\kesm2\GrabDemo\Debug\GrabDemo.exe
+       Manifest:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"C:\Users\Jaewook\Documents\kesm2\GrabDemo\Debug\GrabDemo.exe.manifest" /manifest Debug\GrabDemo.exe.intermediate.manifest "C:\Program Files\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
+       FinalizeBuildStatus:
+         Deleting file "Debug\GrabDemo.unsuccessfulbuild".
+         Touching "Debug\GrabDemo.lastbuildstate".
+     1>Done Building Project "C:\Users\Jaewook\Documents\kesm2\GrabDemo\GrabDemo_2010.vcxproj" (rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:06.84

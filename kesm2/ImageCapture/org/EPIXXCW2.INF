@@ -1,0 +1,148 @@
+;
+;	epixxcw2.inf	External    16-Dec-2005
+;
+;	For Win 2000/XP, PIXCI(R), EPIXXCW2.SYS.
+;
+;	Copyright (C)  2003  EPIX, Inc.  All rights reserved.
+;
+ 
+ 
+[Version] 
+Signature = "$Windows NT$" 
+Class=Image
+ClassGUID={6bdd1fc6-810f-11d0-bec7-08002be2092f}
+Provider=%EPIX% 
+;CatalogFile=epixxcw2.cat
+DriverVer= 02/19/2003
+
+
+[DestinationDirs] 
+PIXCI_STANDARD.Files.x86_12 = 12 
+
+[SourceDisksNames.x86]
+0=%EPIX_DISK%
+
+[SourceDisksFiles.x86]
+EPIXXCW2.SYS=0,, 
+
+
+[Manufacturer] 
+%EPIX%=EPIX
+
+[EPIX]
+%PIXCI_SV2_SV3%		=PIXCI_STANDARD_Inst, PCI\VEN_8086&DEV_1223
+%PIXCI_SV4%		=PIXCI_STANDARD_Inst, PCI\VEN_109E&DEV_0350
+%PIXCI_SV5%		=PIXCI_STANDARD_Inst, PCI\VEN_109E&DEV_036E
+%PIXCI_SV5_AUDIO%	=PIXCI_NULL_Inst,     PCI\VEN_109E&DEV_0878
+%PIXCI_SV6%		=PIXCI_STANDARD_Inst, PCI\VEN_14F1&DEV_8800
+%PIXCI_SV6_B%		=PIXCI_NULL_Inst,     PCI\VEN_14F1&DEV_8801
+%PIXCI_SV6_C%		=PIXCI_NULL_Inst,     PCI\VEN_14F1&DEV_8802
+%PIXCI_SV6_D%		=PIXCI_NULL_Inst,     PCI\VEN_14F1&DEV_8803
+%PIXCI_SV6_E%		=PIXCI_NULL_Inst,     PCI\VEN_14F1&DEV_8804
+%PIXCI_A%		=PIXCI_STANDARD_Inst, PCI\VEN_10E8&DEV_82B1
+%PIXCI_D%		=PIXCI_STANDARD_Inst, PCI\VEN_10E8&DEV_80D6
+%PIXCI_DVO%		=PIXCI_STANDARD_Inst, PCI\VEN_10E8&DEV_817F
+%PIXCI_D2X%		=PIXCI_STANDARD_Inst, PCI\VEN_165A&DEV_D200
+%PIXCI_D3X%		=PIXCI_STANDARD_Inst, PCI\VEN_165A&DEV_D300
+%PIXCI_CL1%		=PIXCI_STANDARD_Inst, PCI\VEN_165A&DEV_C100
+%PIXCI_CL2%		=PIXCI_STANDARD_Inst, PCI\VEN_165A&DEV_C200
+%PIXCI_E1%		=PIXCI_STANDARD_Inst, PCI\VEN_165A&DEV_E001
+%PIXCI_CL3SD%		=PIXCI_CL3SD_Inst,    PCI\VEN_165A&DEV_C301
+%PIXCI_SI%		=PIXCI_STANDARD_Inst, PCI\VEN_165A&DEV_C000
+%PIXELYNX_D2X%		=PIXCI_STANDARD_Inst, PCI\VEN_165A&DEV_D201
+%NAC_CL3SD%		=PIXCI_CL3SD_Inst,    PCI\VEN_165A&DEV_C300
+
+
+[PIXCI_STANDARD_Inst.ntx86] 
+CopyFiles = PIXCI_STANDARD.Files.x86_12 
+AddReg = PIXCI_STANDARD.AddReg.x86 
+Restart
+
+[PIXCI_STANDARD_Inst.ntx86.Services] 
+AddService = EPIXXCW2,0x00000002,PIXCI_STANDARD_Service_Instx86, PIXCI_STANDARD_EventLog_Inst 
+
+[PIXCI_CL3SD_Inst.ntx86] 
+CopyFiles = PIXCI_STANDARD.Files.x86_12 
+AddReg = PIXCI_CL3SD.AddReg.x86 
+Restart
+
+[PIXCI_CL3SD_Inst.ntx86.Services] 
+AddService = EPIXXCW2,0x00000002,PIXCI_STANDARD_Service_Instx86, PIXCI_STANDARD_EventLog_Inst 
+
+[PIXCI_STANDARD_Service_Instx86] 
+DisplayName    = %PIXCI_DRIVER%
+ServiceType    = %SERVICE_KERNEL_DRIVER% 
+StartType      = %SERVICE_SYSTEM_START% 
+ErrorControl   = %SERVICE_ERROR_NORMAL% 
+ServiceBinary  = %12%\EPIXXCW2.SYS 
+LoadOrderGroup = "Extended Base"
+
+[PIXCI_STANDARD.AddReg.x86] 
+HKLM,%SERVICEROOT%\EPIXXCW2,PIXCI,,"-IM 16384"
+
+[PIXCI_CL3SD.AddReg.x86] 
+HKLM,%SERVICEROOT%\EPIXXCW2,PIXCI,,"-IM 4096 -WT 0x20"
+
+[PIXCI_STANDARD.Files.x86_12] 
+EPIXXCW2.SYS
+
+[PIXCI_STANDARD_EventLog_Inst] 
+AddReg = PIXCI_STANDARD_EventLog_Inst.AddReg 
+ 
+[PIXCI_STANDARD_EventLog_Inst.AddReg] 
+HKR,,EventMessageFile,%REG_EXPAND_SZ%,"%%SystemRoot%%\System32\IoLogMsg.dll" 
+HKR,,TypesSupported,%REG_DWORD%,7
+
+
+[PIXCI_NULL_Inst.ntx86] 
+
+[PIXCI_NULL_Inst.ntx86.Services] 
+AddService = ,2,, 
+
+
+[Strings] 
+
+;  *******Localizable Strings******* 
+EPIX		= "EPIX, Inc." 
+EPIX_DISK 	= "PIXCI(R) Board Drivers Disk"
+PIXCI_DRIVER	= "PIXCI(R) Driver"
+PIXCI_SV2_SV3	= "PIXCI(R) SV2, SV3  PCI Video Capture Board for Win 2000/XP"
+PIXCI_SV4	= "PIXCI(R) SV4  PCI Video Capture Board for Win 2000/XP"
+PIXCI_SV5	= "PIXCI(R) SV5  PCI Video Capture Board for Win 2000/XP"
+PIXCI_SV5_AUDIO = "PIXCI(R) SV5  PCI Video Capture Board (Audio) for Win 2000/XP"
+PIXCI_SV6	= "PIXCI(R) SV6  PCI Video Capture Board for Win 2000/XP (Beta)"
+PIXCI_SV6_B	= "PIXCI(R) SV6  PCI Video Capture Board (unused feature) for Win 2000/XP (Beta)"
+PIXCI_SV6_C	= "PIXCI(R) SV6  PCI Video Capture Board (unused feature) for Win 2000/XP (Beta)"
+PIXCI_SV6_D	= "PIXCI(R) SV6  PCI Video Capture Board (unused feature) for Win 2000/XP (Beta)"
+PIXCI_SV6_E	= "PIXCI(R) SV6  PCI Video Capture Board (unused feature) for Win 2000/XP (Beta)"
+PIXCI_A 	= "PIXCI(R) A  PCI Analog Video Capture Board for Win 2000/XP"
+PIXCI_D 	= "PIXCI(R) D  PCI Digital Video Capture Board for Win 2000/XP"
+PIXCI_DVO	= "PIXCI(R) DVO  PCI Digital Video Board for Win 2000/XP"
+PIXCI_D2X	= "PIXCI(R) D2X  PCI Digital Video Capture Board for Win 2000/XP"
+PIXCI_D3X	= "PIXCI(R) D3X  PCI Digital Video Capture Board for Win 2000/XP"
+PIXCI_CL1	= "PIXCI(R) CL1  PCI CameraLink Video Capture Board for Win 2000/XP"
+PIXCI_CL2	= "PIXCI(R) CL2  PCI CameraLink Video Capture Board for Win 2000/XP"
+PIXCI_E1	= "PIXCI(R) E1  PCI Express CameraLink Video Capture Board for Win 2000/XP"
+PIXCI_CL3SD	= "PIXCI(R) CL3SD  PCI CameraLink Video Capture Board for Win 2000/XP"
+PIXCI_SI	= "PIXCI(R) SI  PCI Digital Video Capture Board for Win 2000/XP"
+PIXELYNX_D2X	= "DVC pixeLYNX D2X  PCI Digital Capture Board for Win 2000/XP"
+NAC_CL3SD	= "NAC Hi-Dcam(R) II  PCI Digital Video Capture Board for Win 2000/XP"
+
+;  *******Non Localizable Strings******* 
+
+SERVICEROOT    = "System\CurrentControlSet\Services"
+
+SERVICE_BOOT_START   = 0x0 
+SERVICE_SYSTEM_START = 0x1 
+SERVICE_AUTO_START   = 0x2 
+SERVICE_DEMAND_START = 0x3 
+SERVICE_DISABLED     = 0x4 
+
+SERVICE_KERNEL_DRIVER  = 0x1 
+SERVICE_ERROR_IGNORE   = 0x0 
+SERVICE_ERROR_NORMAL   = 0x1 
+SERVICE_ERROR_SEVERE   = 0x2 
+SERVICE_ERROR_CRITICAL = 0x3 
+
+REG_EXPAND_SZ = 0x00020000 
+REG_DWORD     = 0x00010001 

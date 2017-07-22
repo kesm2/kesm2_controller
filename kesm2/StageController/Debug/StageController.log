@@ -1,0 +1,113 @@
+﻿Build started 2/29/2016 3:00:11 PM.
+     1>Project "C:\Users\Jaewook\Documents\kesm2\StageController\StageController.vcxproj" on node 2 (rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file ".\Debug\StageController.lastbuildstate".
+       InitializeBuildStatus:
+         Creating ".\Debug\StageController.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"C:\Program Files\GnuWin32\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _VC80_UPGRADE=0x0710 /D _MBCS /D _AFXDLL /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp".\Debug/StageController.pch" /Fo".\Debug/" /Fd".\Debug/vc100.pdb" /FR".\Debug\\" /Gd /TP /analyze- /errorReport:prompt StdAfx.cpp
+         StdAfx.cpp
+         _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"C:\Program Files\GnuWin32\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _VC80_UPGRADE=0x0710 /D _MBCS /D _AFXDLL /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp".\Debug/StageController.pch" /Fo".\Debug/" /Fd".\Debug/vc100.pdb" /FR".\Debug\\" /Gd /TP /analyze- /errorReport:prompt CDialogSK.cpp Curvefit.cpp Digistatic.cpp MotionController.cpp SessionDescDlg.cpp SettingsDlg.cpp StageController.cpp StageControllerDlg.cpp StairStep.cpp
+         CDialogSK.cpp
+     1>c:\users\jaewook\documents\kesm2\stagecontroller\cdialogsk.cpp(13): warning C4005: 'LWA_COLORKEY' : macro redefinition
+                 c:\program files\microsoft sdks\windows\v7.0a\include\winuser.h(4024) : see previous definition of 'LWA_COLORKEY'
+     1>c:\users\jaewook\documents\kesm2\stagecontroller\cdialogsk.cpp(14): warning C4005: 'LWA_ALPHA' : macro redefinition
+                 c:\program files\microsoft sdks\windows\v7.0a\include\winuser.h(4025) : see previous definition of 'LWA_ALPHA'
+         Curvefit.cpp
+         Digistatic.cpp
+         MotionController.cpp
+     1>c:\u500\mmi\include\qdrvw32.h(285): warning C4200: nonstandard extension used : zero-sized array in struct/union
+                 Cannot generate copy-ctor or copy-assignment operator when UDT contains a zero-sized array
+     1>c:\users\jaewook\documents\kesm2\stagecontroller\motioncontroller.cpp(226): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(234) : see declaration of 'fopen'
+     1>c:\users\jaewook\documents\kesm2\stagecontroller\motioncontroller.cpp(281): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(371) : see declaration of 'sprintf'
+     1>c:\users\jaewook\documents\kesm2\stagecontroller\motioncontroller.cpp(327): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : see declaration of 'strcpy'
+     1>c:\users\jaewook\documents\kesm2\stagecontroller\motioncontroller.cpp(331): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(371) : see declaration of 'sprintf'
+     1>c:\users\jaewook\documents\kesm2\stagecontroller\motioncontroller.cpp(332): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(110) : see declaration of 'strcat'
+     1>c:\users\jaewook\documents\kesm2\stagecontroller\motioncontroller.cpp(337): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(371) : see declaration of 'sprintf'
+     1>c:\users\jaewook\documents\kesm2\stagecontroller\motioncontroller.cpp(338): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(110) : see declaration of 'strcat'
+     1>c:\users\jaewook\documents\kesm2\stagecontroller\motioncontroller.cpp(343): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(371) : see declaration of 'sprintf'
+     1>c:\users\jaewook\documents\kesm2\stagecontroller\motioncontroller.cpp(344): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(110) : see declaration of 'strcat'
+     1>c:\users\jaewook\documents\kesm2\stagecontroller\motioncontroller.cpp(349): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(371) : see declaration of 'sprintf'
+     1>c:\users\jaewook\documents\kesm2\stagecontroller\motioncontroller.cpp(350): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(110) : see declaration of 'strcat'
+     1>c:\users\jaewook\documents\kesm2\stagecontroller\motioncontroller.cpp(370): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(234) : see declaration of 'fopen'
+     1>c:\users\jaewook\documents\kesm2\stagecontroller\motioncontroller.cpp(469): warning C4244: 'initializing' : conversion from 'time_t' to 'int', possible loss of data
+     1>c:\users\jaewook\documents\kesm2\stagecontroller\motioncontroller.cpp(628): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(234) : see declaration of 'fopen'
+     1>c:\users\jaewook\documents\kesm2\stagecontroller\motioncontroller.cpp(645): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(234) : see declaration of 'fopen'
+     1>c:\users\jaewook\documents\kesm2\stagecontroller\motioncontroller.cpp(648): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(253) : see declaration of 'fscanf'
+     1>c:\users\jaewook\documents\kesm2\stagecontroller\motioncontroller.cpp(649): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(253) : see declaration of 'fscanf'
+     1>c:\users\jaewook\documents\kesm2\stagecontroller\motioncontroller.cpp(651): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(253) : see declaration of 'fscanf'
+         SessionDescDlg.cpp
+     1>c:\program files\microsoft visual studio 10.0\vc\include\math.h(460): warning C4091: 'extern __declspec(dllimport)' : ignored on left of 'double' when no variable is declared
+         SettingsDlg.cpp
+     1>c:\program files\microsoft visual studio 10.0\vc\include\math.h(460): warning C4091: 'extern __declspec(dllimport)' : ignored on left of 'double' when no variable is declared
+         StageController.cpp
+     1>c:\program files\microsoft visual studio 10.0\vc\include\math.h(460): warning C4091: 'extern __declspec(dllimport)' : ignored on left of 'double' when no variable is declared
+         StageControllerDlg.cpp
+     1>c:\users\jaewook\documents\kesm2\stagecontroller\stagecontrollerdlg.cpp(734): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(234) : see declaration of 'fopen'
+     1>c:\users\jaewook\documents\kesm2\stagecontroller\stagecontrollerdlg.cpp(737): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(253) : see declaration of 'fscanf'
+     1>c:\users\jaewook\documents\kesm2\stagecontroller\stagecontrollerdlg.cpp(740): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(234) : see declaration of 'fopen'
+     1>c:\users\jaewook\documents\kesm2\stagecontroller\stagecontrollerdlg.cpp(763): warning C4996: 'chdir': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _chdir. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\direct.h(123) : see declaration of 'chdir'
+     1>c:\users\jaewook\documents\kesm2\stagecontroller\stagecontrollerdlg.cpp(953): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(110) : see declaration of 'strcat'
+     1>c:\users\jaewook\documents\kesm2\stagecontroller\stagecontrollerdlg.cpp(963): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : see declaration of 'strcpy'
+         StairStep.cpp
+         Generating Code...
+       ResourceCompile:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D _DEBUG /D _VC80_UPGRADE=0x0710 /D _AFXDLL /l"0x0412" /nologo /fo".\Debug\StageController.res" StageController.rc 
+       Link:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:".\Debug/StageController.exe" /INCREMENTAL:NO /NOLOGO /MANIFEST /ManifestFile:".\Debug\StageController.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:".\Debug/StageController.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\Debug\StageController.lib" /MACHINE:X86 .\Debug\StageController.res
+         .\Debug/CDialogSK.obj
+         .\Debug/Curvefit.obj
+         .\Debug/Digistatic.obj
+         .\Debug/MotionController.obj
+         .\Debug/SessionDescDlg.obj
+         .\Debug/SettingsDlg.obj
+         .\Debug/StageController.obj
+         .\Debug/StageControllerDlg.obj
+         .\Debug/StairStep.obj
+         .\Debug/StdAfx.obj
+         "..\..\..\..\..\Program Files\GnuWin32\lib\libtiff.lib"
+         u500\Win50032.lib
+     1>CDialogSK.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification
+         StageController.vcxproj -> C:\Users\Jaewook\Documents\kesm2\StageController\.\Debug\StageController.exe
+       Manifest:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:".\Debug/StageController.exe;#1" /manifest .\Debug\StageController.exe.intermediate.manifest "C:\Program Files\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
+       BscMake:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\bscmake.exe /nologo /o".\Debug\StageController.bsc" .\Debug\CDialogSK.sbr .\Debug\Curvefit.sbr .\Debug\Digistatic.sbr .\Debug\MotionController.sbr .\Debug\SessionDescDlg.sbr .\Debug\SettingsDlg.sbr .\Debug\StageController.sbr .\Debug\StageControllerDlg.sbr .\Debug\StairStep.sbr .\Debug\StdAfx.sbr
+       PostBuildEvent:
+         copy debug\*.exe .
+         :VCEnd
+         debug\StageController.exe
+         debug\StageController_NEW.exe
+                 2 file(s) copied.
+       FinalizeBuildStatus:
+         Deleting file ".\Debug\StageController.unsuccessfulbuild".
+         Touching ".\Debug\StageController.lastbuildstate".
+     1>Done Building Project "C:\Users\Jaewook\Documents\kesm2\StageController\StageController.vcxproj" (rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:20.95

@@ -1,0 +1,33 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: slice - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\DMM899~1.GAN\LOCALS~1\Temp\RSP840.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/slice.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /c 
+"C:\Documents and Settings\dmm8995.GANGLIA\Desktop\slice\slice.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\DMM899~1.GAN\LOCALS~1\Temp\RSP840.tmp" 
+Creating temporary file "C:\DOCUME~1\DMM899~1.GAN\LOCALS~1\Temp\RSP841.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/slice.pdb" /debug /machine:I386 /out:"Debug/slice.exe" /pdbtype:sept 
+".\Debug\slice.obj"
+"..\..\..\..\u500\mmi\Win50032.lib"
+]
+Creating command line "link.exe @C:\DOCUME~1\DMM899~1.GAN\LOCALS~1\Temp\RSP841.tmp"
+<h3>Output Window</h3>
+Compiling...
+slice.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+slice.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

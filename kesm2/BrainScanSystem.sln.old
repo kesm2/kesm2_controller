@@ -1,0 +1,37 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StageController", "StageController\StageController.vcproj", "{C0C4D605-11A4-451A-921C-045A7A0DBECE}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DataServer", "DataServer\DataServer.vcproj", "{8C1EEB4F-5577-43E1-A98D-F2871D7E34FE}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImageCapture", "ImageCapture\ImageCapture.vcproj", "{5985A007-4E5A-4864-82CD-531BE905769A}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{C0C4D605-11A4-451A-921C-045A7A0DBECE}.Debug.ActiveCfg = Debug|Win32
+		{C0C4D605-11A4-451A-921C-045A7A0DBECE}.Debug.Build.0 = Debug|Win32
+		{C0C4D605-11A4-451A-921C-045A7A0DBECE}.Release.ActiveCfg = Release|Win32
+		{C0C4D605-11A4-451A-921C-045A7A0DBECE}.Release.Build.0 = Release|Win32
+		{8C1EEB4F-5577-43E1-A98D-F2871D7E34FE}.Debug.ActiveCfg = Debug|Win32
+		{8C1EEB4F-5577-43E1-A98D-F2871D7E34FE}.Debug.Build.0 = Debug|Win32
+		{8C1EEB4F-5577-43E1-A98D-F2871D7E34FE}.Release.ActiveCfg = Release|Win32
+		{8C1EEB4F-5577-43E1-A98D-F2871D7E34FE}.Release.Build.0 = Release|Win32
+		{5985A007-4E5A-4864-82CD-531BE905769A}.Debug.ActiveCfg = Debug|Win32
+		{5985A007-4E5A-4864-82CD-531BE905769A}.Debug.Build.0 = Debug|Win32
+		{5985A007-4E5A-4864-82CD-531BE905769A}.Release.ActiveCfg = Release|Win32
+		{5985A007-4E5A-4864-82CD-531BE905769A}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

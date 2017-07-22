@@ -1,0 +1,44 @@
+;
+;	epixxcwt.inf	External    21-Aug-2000
+;
+;	For Win NT V4.0, PIXCI(R), EPIXXCWT.SYS.
+;
+;	Copyright (C)  2000  EPIX, Inc.  All rights reserved.
+;
+
+[version]
+Signature="$Windows NT$"
+SetupClass=BASE
+ClassGUID={00000000-0000-0000-0000-000000000000}
+Provider=%Provider%
+
+[DestinationDirs]
+DefaultDestDir=12		; sets default dir to system32\drivers for copying
+
+[DefaultInstall]
+CopyFiles = EPIX_CopyFiles		
+AddReg = EPIX_add_registry_section	
+
+[EPIX_CopyFiles]
+%EPIX_Driver%,,,4                ; 4 forces file overwrite (no version checking)
+ 
+[EPIX_add_registry_section]
+HKLM,%Services_Path%\EventLog\System\%EPIX_Subkey%,EventMessageFile,,"%%SystemRoot%%\System32\IoLogMsg.dll"
+HKLM,%Services_Path%\EventLog\System\%EPIX_Subkey%,TypesSupported,0x10001,0x00000007
+HKLM,%Services_Path%\%EPIX_Subkey%,ErrorControl,0x10001,0x00000001
+HKLM,%Services_Path%\%EPIX_Subkey%,Group,,"Extended base"
+HKLM,%Services_Path%\%EPIX_Subkey%,Start,0x10001,0x00000001 ; high priority load!
+HKLM,%Services_Path%\%EPIX_Subkey%,Type,0x10001,0x00000001
+HKLM,%Services_Path%\%EPIX_Subkey%,PIXCI,,"-IM 16384 -WT 0x20"	; optional: specify image memory size
+
+[SourceDisksNames]		
+1="PIXCI Software Directory","",1	; Description of disk is in quotes
+
+[SourceDisksFiles]
+%EPIX_Driver%=1 			; file to be copied and disk it is on
+
+[Strings]
+Provider="EPIX, Inc."
+EPIX_Driver="EPIXXCWT.SYS"		; driver name
+Services_Path="SYSTEM\CurrentControlSet\Services"
+EPIX_Subkey="EPIXXCWT"			; subkey name

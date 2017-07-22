@@ -1,0 +1,49 @@
+﻿Build started 1/29/2016 5:24:03 PM.
+     1>Project "C:\Users\Jaewook\Documents\Sapera_v8.02\Classes\Gui\SapClassGui_2010.vcxproj" on node 2 (build target(s)).
+     1>C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.Targets(1422,5): warning : The referenced project '..\..\Source\CorAPI\Win32\CorApi_2010.vcxproj' does not exist.
+     1>C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.Targets(1422,5): warning : The referenced project '..\Basic\SapClassBasic_2010.vcxproj' does not exist.
+     1>InitializeBuildStatus:
+         Creating "Release.NET_2010\SapClassGui.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       PreBuildEvent:
+         if not exist %SystemRoot%\SysWOW64 goto end
+         echo (Sapera LT warning) Compiling a 32-bit configuration under 64-bit Windows
+         :end
+         
+         :VCEnd
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       ResourceCompile:
+         All outputs are up-to-date.
+       Link:
+         All outputs are up-to-date.
+         SapClassGui_2010.vcxproj -> C:\Users\Jaewook\Documents\Sapera_v8.02\Classes\Gui\Release.NET_2010\SapClassGui80.NET_2010.dll
+       Manifest:
+         All outputs are up-to-date.
+       PostBuildEvent:
+         if exist %SystemRoot%\SysWOW64 goto is64bit
+         echo Updating System32 directory
+         copy "C:\Users\Jaewook\Documents\Sapera_v8.02\Classes\Gui\Release.NET_2010\SapClassGui80.NET_2010.dll" %SystemRoot%\System32
+         goto end
+         :is64bit
+         echo Updating SysWow64 directory
+         copy "C:\Users\Jaewook\Documents\Sapera_v8.02\Classes\Gui\Release.NET_2010\SapClassGui80.NET_2010.dll" %SystemRoot%\SysWOW64
+         :end
+         echo Updating Sapera library directory
+         copy Release.NET_2010\SapClassGui.lib ..\..\Lib\.NET_2010
+         copy Release.NET_2010\SapClassGui.lib ..\..\Lib\Win32\VS2010
+         :VCEnd
+         Updating System32 directory
+         Access is denied.
+                 0 file(s) copied.
+         Updating Sapera library directory
+                 1 file(s) copied.
+                 1 file(s) copied.
+       FinalizeBuildStatus:
+         Deleting file "Release.NET_2010\SapClassGui.unsuccessfulbuild".
+         Touching "Release.NET_2010\SapClassGui.lastbuildstate".
+     1>Done Building Project "C:\Users\Jaewook\Documents\Sapera_v8.02\Classes\Gui\SapClassGui_2010.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.26

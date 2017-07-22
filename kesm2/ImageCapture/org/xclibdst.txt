@@ -1,0 +1,198 @@
+
+
+
+                                        - 1 -
+
+
+
+    DISTRIBUTION KIT:
+
+            C/C++ Library for the PIXCI(R) Imaging Boards
+            XCLIB & XCLIB-Lite - Version 2.2
+
+    The XCLIB or XCLIB-Lite distribution contains one or more of:
+
+    1a) EPIXXCW5.VXD        Windows 95/98/ME 32 bit driver.
+        EPIXXCW5.INF        Windows 95/98/ME 32 bit driver installer.
+        EPIXXC.SYS          Large image memory reservoir driver for Windows 95/98.
+
+    1b) EPIXXCWT.SYS        Windows NT 32 bit driver (formerly also for Windows 2000).
+        EPIXXCWT.INF        Windows NT 32 bit driver installer.
+
+    1c) EPIXXCW2.SYS        Windows 2000/XP/Server2003 32 bit driver.
+        EPIXXCW2.INF        Windows 2000/XP/Server2003 32 bit driver installer.
+
+    1d) pixci_i386.o        Loadable device driver for Linux w. 2.4 32 bit kernel
+                            and Intel 386 and newer processors.
+
+    1e) pixci_i386.ko       Loadable device driver for Linux w. 2.6 32 bit kernel
+                            and Intel 386 and newer processors.
+
+    1f) pixci_x86_64.ko     Loadable device driver for Linux w. 2.6 64 bit kernel
+                            and Intel ??? and newer processors.
+
+    2a) XCLIBW95.DLL        XCLIB DLL and Import library for Windows 95/98/ME.
+        XCLIBW95.LIB        (Compiler independent).
+        XCLIBW95.EXP
+
+    2b) XCLIBWNT.DLL        XCLIB DLL and Import library for Windows NT V4.0,
+        XCLIBWNT.LIB        2000, XP, and Server 2003 (Compiler independent).
+        XCLIBWNT.EXP
+
+    2c) XCLYBW95.DLL        XCLIB-Lite DLL and Import library for Windows 95/98/ME.
+        XCLYBW95.LIB        (Compiler independent).
+        XCLYBW95.EXP
+
+    2d) XCLYBWNT.DLL        XCLIB-Lite DLL and Import library for Windows NT V4.0,
+        XCLYBWNT.LIB        2000, XP, and Server 2003 (Compiler independent).
+        XCLYBWNT.EXP
+
+    2e) XCLBW0DF.LIB        XCLIB Library, F model, for Tenberry+DOS,
+                            Watcom 32 Bit C/C++ V10.0.
+
+    2f) XCLBW1DF.LIB        XCLIB Library, F model, for Tenberry+DOS,
+                            Watcom 32 Bit C/C++ V11.0.
+
+    2g) xclibi86.a          XCLIB Library, static link, for Linux,
+                            Intel 80x86, and GNU 'C'.
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 2 -
+
+
+
+    3a) xcliball.h          Master C include file for programs using XCLIB.
+
+    3b) pxlibsv.h   cext.h             Various C include files for XCLIB.
+        pxlibvs.h   cext_hp1.h         Included by inclusion of XCLIBALL.H
+        xclibsc.h   cext_hp2.h
+        xclibsv.h   cext_hp4.h
+        xclibvs.h   cext_hps.h
+        pximage.h   cext_hpe.h
+        pxerrno.h
+        pxlibcam.h
+
+    4a) XCLIBEX1.C          Source of example program demonstrating capture
+                            and video display on S/VGA and other features
+                            under Tenberry+DOS and Windows command line.
+
+    4b) XCLIBEX2.CPP        Source of example programs demonstrating capture
+        XCLIBEX2.RC         and video display on S/VGA and other features
+        XCLIBEX2.H          under Windows.
+        XCLIBEX4.CPP        See comments in file(s) for compilation instructions.
+        XCLIBEX4.RC
+        XCLIBEX5.CPP
+        XCLIBEXP.CPP
+
+    4c) XCLIBEXC.CPP        Source of example program demonstrating
+        XCLIBEXC.RC         capture, video display, and control of the
+                            SILICON VIDEO(R) 2112, 2112C, 1310, 1310C,
+                            1281, 1281C, 9M001, 9M001C, and 9T001C
+                            cameras under Windows.
+
+    4d) XCLIBEX3.TXT        Source of example program for Visual Basic and VB.NET.
+        XCLIBEX6.TXT        Comments in file provide usage instructions.
+
+    4e) xclibel1.c          Source of example programs demonstrating capture,
+        xclibel3.c          access to pixel data and other features
+                            under Linux. See comments in file(s) for compilation
+                            instructions.
+
+     5) CTOBAS.EXE          Utility to convert .h files into Visual Basic
+                            declarations.
+
+     6) *.txt               One or more ASCII text files containing distribution
+                            information, release notes, manual updates, etc.
+
+     7) xclib.htm           Complete XCLIB C/C++ Library Reference Manual, in HTML format.
+
+     A) XCLIB C/C++ Library Reference Manual.
+                            Not included with XCLIB-Lite.
+
+    Items 1 through 7 distributed on diskettes or CD.
+    Item A distributed on paper.
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 3 -
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

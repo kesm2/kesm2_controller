@@ -1,0 +1,38 @@
+﻿Build started 2/25/2016 10:40:01 AM.
+     1>Project "C:\Users\Jaewook\Documents\Sapera_v8.02\Demos\Classes\Vc\GrabDemo\GrabDemo_2010.vcxproj" on node 2 (rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "Release\GrabDemo.lastbuildstate".
+       InitializeBuildStatus:
+         Creating "Release\GrabDemo.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       PreBuildEvent:
+         if not exist %SystemRoot%\SysWOW64 goto end
+         echo (Sapera LT warning) Compiling a 32-bit configuration under 64-bit Windows
+         :end
+         
+         :VCEnd
+       ClCompile:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I. /I..\..\..\..\include /I..\..\..\..\Classes\Basic /I..\..\..\..\Classes\Gui /I..\..\..\..\externals\CorLib /Zi /nologo /W3 /WX- /O2 /Ob1 /Oy- /D WIN32 /D NDEBUG /D _WINDOWS /D WINVER=0x0501 /D _WIN32_WINNT=0x0501 /D _VC80_UPGRADE=0x0710 /D _AFXDLL /GF /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Release\\" /Fd".\Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt GrabDemo.cpp GrabDemoDlg.cpp
+         GrabDemo.cpp
+         GrabDemoDlg.cpp
+         Generating Code...
+       ResourceCompile:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D _AFXDLL /D NDEBUG /D _VC80_UPGRADE=0x0710 /D _AFXDLL /l"0x0409" /I..\..\..\..\Classes\Gui /nologo /fo"Release\GrabDemo.res" GrabDemo.rc 
+     1>Project "C:\Users\Jaewook\Documents\Sapera_v8.02\Demos\Classes\Vc\GrabDemo\GrabDemo_2010.vcxproj" (1) is building "C:\Users\Jaewook\Documents\Sapera_v8.02\Classes\Gui\SapClassGui_2010.vcxproj" (2:3) on node 2 (GetResolvedLinkLibs target(s)).
+     2>C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.Targets(1422,5): warning : The referenced project '..\..\Source\CorAPI\Win32\CorApi_2010.vcxproj' does not exist.
+     2>C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.Targets(1422,5): warning : The referenced project '..\Basic\SapClassBasic_2010.vcxproj' does not exist.
+     2>Done Building Project "C:\Users\Jaewook\Documents\Sapera_v8.02\Classes\Gui\SapClassGui_2010.vcxproj" (GetResolvedLinkLibs target(s)).
+     1>Link:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Release\GrabDemo.exe" /INCREMENTAL:NO /NOLOGO ..\..\..\..\Lib\Win32\SapClassBasic.lib ..\..\..\..\Lib\Win32\VS2010\SapClassGui.lib /MANIFEST /ManifestFile:"Release\GrabDemo.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /PDB:".\Release\GrabDemo.pdb" /SUBSYSTEM:WINDOWS /OPT:NOREF /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"Release\GrabDemo.lib" /MACHINE:X86 Release\GrabDemo.res
+         .\Release\GrabDemo.obj
+         .\Release\GrabDemoDlg.obj
+         GrabDemo_2010.vcxproj -> C:\Users\Jaewook\Documents\Sapera_v8.02\Demos\Classes\Vc\GrabDemo\Release\GrabDemo.exe
+       Manifest:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"Release\GrabDemo.exe;#1" /manifest Release\GrabDemo.exe.intermediate.manifest "C:\Program Files\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
+       FinalizeBuildStatus:
+         Deleting file "Release\GrabDemo.unsuccessfulbuild".
+         Touching "Release\GrabDemo.lastbuildstate".
+     1>Done Building Project "C:\Users\Jaewook\Documents\Sapera_v8.02\Demos\Classes\Vc\GrabDemo\GrabDemo_2010.vcxproj" (rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:07.23
